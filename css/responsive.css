@@ -56,6 +56,11 @@
         background-color: var(--amarillo-dorado);
     }
 
+    .nav-container,
+    .container {
+        width: calc(100% - 30px);
+    }
+
     .nav-list.mostrar {
         display: flex; 
     }

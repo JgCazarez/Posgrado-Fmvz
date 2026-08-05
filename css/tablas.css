@@ -1,0 +1,163 @@
+:root{
+  --uas-azul:#0a3a82;
+  --uas-dorado:#f0b400;
+  --texto:#0f172a;
+  --fondo:#f8fafc;
+  --borde:rgba(0,0,0,.08);
+}
+
+/* ===== TARJETA FILTROS ===== */
+.card-filtros{
+  border:1px solid var(--borde);
+  border-top:4px solid var(--uas-dorado);
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  border-radius:12px;
+  background:#fff;
+}
+
+/* ===== CONTENEDOR TABLA ===== */
+.table-wrap{
+  border:1px solid var(--borde);
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  background:#fff;
+}
+
+table.tabla-uas{
+  width:100%;
+  table-layout:auto;
+  margin-bottom: 0;
+}
+
+table.tabla-uas thead th{
+  background:var(--uas-azul);
+  color:#fff!important;
+  font-weight:700;
+  text-align:center;
+  border-bottom:2px solid var(--uas-dorado);
+  white-space:nowrap;
+  padding: .9rem .85rem;
+}
+
+table.tabla-uas td{
+  vertical-align:middle;
+  white-space:normal;
+  word-break:break-word;
+  padding:.75rem .85rem;
+}
+
+/* Tema y comité alineados a la izquierda */
+table.tabla-uas td:nth-child(2),
+table.tabla-uas td:nth-child(3){
+  text-align:left;
+}
+
+/* ===== COLUMNA COHORTE (FIX DEFINITIVO) ===== */
+table.tabla-uas th:nth-child(4),
+table.tabla-uas td:nth-child(4){
+  min-width:150px;
+  width:150px;
+  white-space:nowrap;
+  text-align:center;
+}
+
+/* ===== FILAS ALTERNADAS ===== */
+table.tabla-uas tbody tr:nth-child(odd)>*{
+  background-color:rgba(240,180,0,.14)!important;
+}
+table.tabla-uas tbody tr:nth-child(even)>*{
+  background-color:rgba(10,58,130,.12)!important;
+}
+
+/* ===== PAGINACIÓN ===== */
+.paginacion-wrap{
+  border-top:1px solid var(--borde);
+  padding:.75rem;
+  background:#fff;
+}
+.pagination .page-item.active .page-link{
+  background-color:var(--uas-azul);
+  border-color:var(--uas-azul);
+}
+.page-link {
+    color: var(--uas-azul);
+}
+.page-link:hover {
+    color: #002d6e;
+}
+
+@media (max-width: 767px) {
+  .table-wrap {
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .table-wrap .table-responsive {
+    overflow: visible;
+  }
+
+  table.tabla-uas,
+  table.tabla-uas tbody,
+  table.tabla-uas tr,
+  table.tabla-uas td {
+    display: block;
+    width: 100%;
+  }
+
+  table.tabla-uas thead {
+    display: none;
+  }
+
+  table.tabla-uas tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--borde);
+    border-radius: .75rem;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,.05);
+  }
+
+  table.tabla-uas tbody tr:nth-child(odd) {
+    background-color: rgba(240,180,0,.14);
+  }
+
+  table.tabla-uas tbody tr:nth-child(even) {
+    background-color: rgba(10,58,130,.12);
+  }
+
+  /* En móvil el color pertenece a toda la tarjeta, no a cada celda. */
+  table.tabla-uas tbody tr:nth-child(odd) > td,
+  table.tabla-uas tbody tr:nth-child(even) > td {
+    --bs-table-accent-bg: transparent;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  table.tabla-uas td {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, 35%) 1fr;
+    gap: .75rem;
+    padding: .7rem .85rem;
+    text-align: left !important;
+    white-space: normal;
+  }
+
+  table.tabla-uas td::before {
+    font-weight: 700;
+    color: var(--uas-azul);
+  }
+
+  table.tabla-uas td:nth-child(1)::before { content: "Alumno"; }
+  table.tabla-uas td:nth-child(2)::before { content: "Tema"; }
+  table.tabla-uas td:nth-child(3)::before { content: "Comité tutorial"; }
+  table.tabla-uas td:nth-child(4)::before { content: "Cohorte"; }
+
+  table.tabla-uas td[colspan] {
+    display: block;
+  }
+
+  table.tabla-uas td[colspan]::before {
+    content: none;
+  }
+}
