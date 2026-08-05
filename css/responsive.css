@@ -1,0 +1,89 @@
+/* =========================================
+   VISTA MÓVIL Y TABLET (HASTA 1024PX)
+========================================= */
+@media (max-width: 767px) {
+    
+    /* Ocultar elementos exclusivos de escritorio */
+    .hide-mobile {
+        display: none !important;
+    }
+
+    /* Ajustar Header Azul */
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .header-titles {
+        text-align: left;
+    }
+    
+    .header-titles h1 {
+        font-size: 0.9rem; /* Letra ajustada para que quepa junto al menú */
+        margin: 0;
+    }
+
+    /* Activar y dar estilo al botón hamburguesa */
+    .mobile-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 24px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        flex-shrink: 0;
+    }
+
+    .mobile-btn span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--blanco);
+        border-radius: 2px;
+    }
+
+    /* Reestructuración del Nav List a Acordeón Vertical */
+    .nav-list {
+        display: none; /* Oculto inicialmente */
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--amarillo-dorado);
+    }
+
+    .nav-list.mostrar {
+        display: flex; 
+    }
+
+    .nav-list > li {
+        width: 100%;
+        border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .nav-list a {
+        padding: 15px 20px;
+        text-align: left;
+        font-size: 1rem;
+    }
+
+    /* Submenús en Móvil */
+    .dropdown-content {
+        position: static;
+        display: none; 
+        box-shadow: none;
+        background-color: var(--amarillo-oscuro); 
+    }
+
+    .dropdown-content li a {
+        padding-left: 40px; /* Sangría visual */
+    }
+
+    .dropdown.abierto .dropdown-content {
+        display: block; 
+    }
+}
