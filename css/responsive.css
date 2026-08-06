@@ -53,6 +53,7 @@
         display: none; /* Oculto inicialmente */
         flex-direction: column;
         width: 100%;
+        padding-left: 0;
         background-color: var(--amarillo-dorado);
     }
 

@@ -10,42 +10,7 @@
   <link rel="stylesheet" href="../../css/tablas.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-container">
-      <img src="../../assets/image-34.png" alt="Logo Escudo" class="logo hide-mobile">
-      <div class="header-titles">
-        <h1>COLEGIO DE CIENCIAS AGROPECUARIAS</h1>
-        <h2 class="hide-mobile">UNIVERSIDAD AUTÓNOMA DE SINALOA</h2>
-      </div>
-      <button class="mobile-btn" id="mobileMenuBtn"><span></span><span></span><span></span></button>
-      <img src="../../assets/consolidacion2029-2.png" alt="Logo UAS" class="logo hide-mobile">
-    </div>
-  </header>
-
-  <nav class="main-nav">
-    <div class="nav-container">
-    <ul class="nav-list" id="navList">
-      <li><a href="../../index.html">Inicio</a></li>
-      <li class="dropdown">
-        <a href="../nosotros.html">Nosotros</a>
-        <ul class="dropdown-content">
-          <li><a href="../nosotros.html#mision-vision">Misión y Visión</a></li>
-          <li><a href="../nosotros.html#historia">Historia</a></li>
-          <li><a href="../nosotros.html#directorio">Directorio</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="../oferta-educativa.html">Oferta Educativa</a>
-        <ul class="dropdown-content">
-          <li><a href="../maestria/tesis-en-proceso.html">Maestría</a></li>
-          <li><a href="../doctorado/tesis-en-proceso.html">Doctorado</a></li>
-        </ul>
-      </li>
-      <li><a href="../investigacion.html">Investigación</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-    </div>
-  </nav>
+  <site-header data-root="../../"></site-header>
 
   <main class="container my-4">
     <h2 class="fw-bold mb-3">Tesis en Proceso MCA</h2>
@@ -88,9 +53,10 @@
     </div>
   </main>
 
+  <script src="../../js/site-header.js"></script>
   <script src="../../js/menu.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+  <script src="../../js/tablas-tesis.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const DATA_MCA = [
@@ -109,94 +75,14 @@
           { alumno: "Ramiro Alejandro López López", tema: "Caracterización y manejo de la enfermedad “Pata Prieta” en el cultivo de la papa en el Norte de Sinaloa.", comite: "Dr. Felipe de Jesús Ayala Tafoya, Dr. Agustín Aragón García, Dra. Rosa Celia González.", cohorte: "2021-2023" }
       ];
 
-      const searchInput = document.getElementById('busquedaAlumnoMCA');
-      const cohorteFilter = document.getElementById('filtroCohorteMCA');
-      const tesisTbody = document.querySelector('#tablaTesisMCA tbody');
-      const paginationUl = document.getElementById('paginacionMCA');
-      
-      const rowsPerPage = 10;
-      let currentPage = 1;
-      let filteredData = [...DATA_MCA];
+      const configMCA = {
+        busquedaId: 'busquedaAlumnoMCA',
+        cohorteId: 'filtroCohorteMCA',
+        tbodySelector: '#tablaTesisMCA tbody',
+        paginacionId: 'paginacionMCA'
+      };
 
-      function populateCohorteFilter() {
-        const cohortes = [...new Set(DATA_MCA.map(item => item.cohorte))].sort();
-        cohortes.forEach(cohorte => {
-          const option = document.createElement('option');
-          option.value = cohorte;
-          option.innerText = cohorte;
-          cohorteFilter.appendChild(option);
-        });
-      }
-
-      function renderTable() {
-        tesisTbody.innerHTML = '';
-        const start = (currentPage - 1) * rowsPerPage;
-        const end = start + rowsPerPage;
-        const paginatedData = filteredData.slice(start, end);
-
-        if (paginatedData.length === 0) {
-            tesisTbody.innerHTML = '<tr><td colspan="4" class="text-center">No se encontraron resultados para los filtros seleccionados.</td></tr>';
-            return;
-        }
-
-        paginatedData.forEach(item => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-            <td>${item.alumno}</td>
-            <td>${item.tema}</td>
-            <td>${item.comite}</td>
-            <td>${item.cohorte}</td>
-          `;
-          tesisTbody.appendChild(row);
-        });
-      }
-
-      function setupPagination() {
-        paginationUl.innerHTML = '';
-        const pageCount = Math.ceil(filteredData.length / rowsPerPage);
-
-        if (pageCount <= 1) return;
-
-        for (let i = 1; i <= pageCount; i++) {
-          const li = document.createElement('li');
-          li.className = 'page-item' + (i === currentPage ? ' active' : '');
-          const a = document.createElement('a');
-          a.className = 'page-link';
-          a.href = '#';
-          a.innerText = i;
-          a.addEventListener('click', function (e) {
-            e.preventDefault();
-            currentPage = i;
-            renderTable();
-            document.querySelector('.pagination .active')?.classList.remove('active');
-            li.classList.add('active');
-          });
-          li.appendChild(a);
-          paginationUl.appendChild(li);
-        }
-      }
-
-      function applyFiltersAndRender() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const selectedCohorte = cohorteFilter.value;
-
-        filteredData = DATA_MCA.filter(item => {
-          const matchesSearch = item.alumno.toLowerCase().includes(searchTerm);
-          const matchesCohorte = selectedCohorte === 'todos' || item.cohorte === selectedCohorte;
-          return matchesSearch && matchesCohorte;
-        });
-
-        currentPage = 1;
-        renderTable();
-        setupPagination();
-      }
-
-      // Initial Setup
-      populateCohorteFilter();
-      applyFiltersAndRender();
-      
-      searchInput.addEventListener('input', applyFiltersAndRender);
-      cohorteFilter.addEventListener('change', applyFiltersAndRender);
+      inicializarTablaTesis(DATA_MCA, configMCA);
     });
   </script>
 </body>

@@ -1,8 +1,8 @@
 :root {
-  --azul-principal: #0052CC;
-  --azul-oscuro: #003D82;
-  --amarillo-dorado: #C1AC06; 
-  --amarillo-oscuro: #a39205; 
+  --azul-principal: #0B5EAF;
+  --azul-oscuro: #0A4E94;
+  --amarillo-dorado: #BBB30E;
+  --amarillo-oscuro: #A39B0C;
   --blanco: #FFFFFF;
   --gris-claro: #F5F5F5;
 }
@@ -20,20 +20,23 @@ body {
 ========================================= */
 .site-header {
   background-color: var(--azul-principal);
-  padding: 15px 0;
+}
+
+site-header {
+  display: block;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 95%;
-  max-width: 1200px;
+  width: 48.4375%;
+  max-width: 930px;
   margin: 0 auto;
 }
 
 .logo {
-  height: 80px;
+  height: 172px;
   object-fit: contain;
 }
 
@@ -43,14 +46,20 @@ body {
 }
 
 .header-titles h1 {
-  font-size: 1.2rem;
-  margin: 0 0 5px 0;
+  font-size: 1.125rem;
+  letter-spacing: .16em;
+  margin: 0;
 }
 
-.header-titles h2 {
+.header-subtitle {
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
   font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .55em;
   margin: 0;
-  letter-spacing: 2px;
+  padding: 8px 0 7px .55em;
+  text-align: center;
 }
 
 .mobile-btn {
@@ -66,16 +75,16 @@ body {
 
 .nav-container {
   width: 80%;
-  max-width: 1500px;
+  max-width: 1350px;
   margin: 0 auto;
 }
 
 .nav-list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 16px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: nowrap;
 }
 
@@ -85,10 +94,10 @@ body {
 
 .nav-list a {
   display: block;
-  padding: 15px 10px; 
+  padding: 19px 6px;
   color: var(--blanco);
   text-decoration: none;
-  font-size: 0.85rem; 
+  font-size: 1rem;
 }
 
 .nav-list a:hover {
@@ -100,23 +109,24 @@ body {
   display: none; 
   position: absolute;
   background-color: var(--amarillo-dorado); /* Mismo color de la barra */
-  min-width: 280px; /* Un poco más ancho para que quepa bien el texto de los módulos */
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  min-width: 281px;
+  box-shadow: none;
   z-index: 1000;
   top: 100%;
   left: 0;
-  padding: 10px 0; /* Espaciado arriba y abajo */
+  padding: 0;
   margin: 0;
   list-style: none;
 }
 
 /* Los enlaces dentro del submenú */
 .dropdown-content li a {
-  padding: 12px 20px;
+  padding: 10px 12px;
   text-align: left;
   border-bottom: none; /* Quitamos bordes para igualar tu imagen */
   color: var(--blanco);
-  font-size: 0.85rem;
+  font-size: 1rem;
+  white-space: nowrap;
 }
 
 /* El efecto al pasar el ratón */
@@ -135,7 +145,7 @@ body {
 ========================================= */
 .container {
   width: 80%;
-  max-width: 1500px;
+  max-width: 1350px;
   margin: 20px auto;
 }
 
