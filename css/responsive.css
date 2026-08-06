@@ -25,6 +25,7 @@
     .header-titles h1 {
         font-size: 0.9rem; /* Letra ajustada para que quepa junto al menú */
         margin: 0;
+        white-space: normal;
     }
 
     /* Activar y dar estilo al botón hamburguesa */
@@ -75,6 +76,19 @@
         padding: 15px 20px;
         text-align: left;
         font-size: 1rem;
+    }
+
+    .nav-list .dropdown > a {
+        padding-right: 48px;
+        position: relative;
+    }
+
+    .nav-list .dropdown > a::after {
+        margin-left: 0;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     /* Submenús en Móvil */

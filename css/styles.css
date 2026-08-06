@@ -30,8 +30,8 @@ site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 48.4375%;
-  max-width: 930px;
+  width: 80%;
+  max-width: 1350px;
   margin: 0 auto;
 }
 
@@ -41,14 +41,17 @@ site-header {
 }
 
 .header-titles {
+  flex: 1;
+  min-width: 0;
   text-align: center;
   color: var(--blanco);
 }
 
 .header-titles h1 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   letter-spacing: .16em;
   margin: 0;
+  white-space: nowrap;
 }
 
 .header-subtitle {
@@ -71,6 +74,7 @@ site-header {
 ========================================= */
 .main-nav {
   background-color: var(--amarillo-dorado);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* Borde inferior añadido */
 }
 
 .nav-container {
@@ -98,10 +102,25 @@ site-header {
   color: var(--blanco);
   text-decoration: none;
   font-size: 1rem;
+  font-weight: bold; /* Peso de fuente añadido */
 }
 
-.nav-list a:hover {
-  background-color: var(--amarillo-oscuro);
+.nav-list > li > a:hover {
+  background-color: transparent;
+}
+
+.nav-list > li > a:focus-visible {
+  outline: 2px solid var(--blanco);
+  outline-offset: -2px;
+}
+
+/* Icono para elementos con dropdown */
+.nav-list .dropdown > a::after {
+  content: ' ▼';
+  font-size: 0.6em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
 }
 
 /* La caja del submenú */
