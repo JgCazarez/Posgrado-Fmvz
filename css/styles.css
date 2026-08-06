@@ -90,6 +90,7 @@ site-header {
   display: flex;
   justify-content: flex-start;
   flex-wrap: nowrap;
+  gap: 16px; /* Añadido para separación */
 }
 
 .nav-list > li {
@@ -97,7 +98,9 @@ site-header {
 }
 
 .nav-list a {
-  display: block;
+  display: flex; /* Make it a flex container */
+  justify-content: space-between; /* Push items to ends */
+  align-items: center; /* Vertically center */
   padding: 19px 6px;
   color: var(--blanco);
   text-decoration: none;
@@ -118,9 +121,9 @@ site-header {
 .nav-list .dropdown > a::after {
   content: ' ▼';
   font-size: 0.6em;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 5px;
+  display: inline-block; /* Keep for content property */
+  /* Removed vertical-align: middle; - handled by parent flex */
+  /* Removed margin-left: 5px; - handled by parent flex */
 }
 
 /* La caja del submenú */
