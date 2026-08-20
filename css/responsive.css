@@ -1,110 +1,225 @@
 /* =========================================
-   VISTA MÓVIL Y TABLET (HASTA 1024PX)
+   VISTA RESPONSIVE (MÓVIL Y TABLET)
 ========================================= */
-@media (max-width: 767px) {
-    
-    /* Ocultar elementos exclusivos de escritorio */
-    .hide-mobile {
-        display: none !important;
-    }
 
-    /* Ajustar Header Azul */
-    .header-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 15px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+@media (max-width: 1024px) {
+  .dropdown-content.mega-menu {
+    min-width: 480px;
+  }
 
-    .header-titles {
-        text-align: left;
-    }
-    
-    .header-titles h1 {
-        font-size: 0.9rem; /* Letra ajustada para que quepa junto al menú */
-        margin: 0;
-        white-space: normal;
-    }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    /* Activar y dar estilo al botón hamburguesa */
-    .mobile-btn {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        width: 30px;
-        height: 24px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        flex-shrink: 0;
-    }
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
 
-    .mobile-btn span {
-        width: 100%;
-        height: 3px;
-        background-color: var(--blanco);
-        border-radius: 2px;
-    }
+  .footer-col.footer-brand {
+    grid-column: span 2;
+  }
+}
 
-    /* Reestructuración del Nav List a Acordeón Vertical */
-    .nav-list {
-        display: none; /* Oculto inicialmente */
-        flex-direction: column;
-        width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        background-color: var(--amarillo-dorado);
-    }
+@media (max-width: 768px) {
+  /* Ocultar elementos exclusivos de escritorio */
+  .hide-mobile {
+    display: none !important;
+  }
 
-    .nav-container,
-    .container {
-        width: calc(100% - 30px);
-    }
+  /* Header Móvil */
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    width: 100%;
+  }
 
-    .nav-list.mostrar {
-        display: flex; 
-    }
+  .header-titles {
+    text-align: left;
+    padding: 0;
+  }
+  
+  .header-titles h1 {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    white-space: normal;
+    line-height: 1.3;
+  }
 
-    .nav-list > li {
-        width: 100%;
-        border-top: 1px solid rgba(255,255,255,0.3);
-    }
+  /* Botón Hamburguesa */
+  .mobile-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 32px;
+    height: 26px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    z-index: 1001;
+  }
 
-    .nav-list a {
-        padding: 18px 25px;
-        text-align: left;
-        font-size: 1rem;
-    }
+  .mobile-btn span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--blanco);
+    border-radius: 2px;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+  }
 
-    .nav-list .dropdown > a {
-        padding-right: 48px;
-        position: relative;
-    }
+  /* Nav Móvil */
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px 12px 16px;
+    background-color: var(--amarillo-dorado);
+  }
 
-    .nav-list .dropdown > a::after {
-        margin-left: 0;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+  .nav-list.mostrar {
+    display: flex;
+    animation: fadeInDown 0.25s ease;
+  }
 
-    /* Submenús en Móvil */
-    .dropdown-content {
-        position: static;
-        display: none; 
-        box-shadow: none;
-        background-color: var(--amarillo-oscuro); 
-    }
+  .nav-list > li {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
-    .dropdown-content li a {
-        padding-left: 40px; /* Sangría visual */
-    }
+  .nav-list > li > a {
+    padding: 14px 12px;
+    font-size: 0.95rem;
+    justify-content: space-between;
+  }
 
-    .dropdown.abierto .dropdown-content {
-        display: block; 
-    }
+  /* Submenús en Móvil */
+  .dropdown-content,
+  .dropdown-content.mega-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    background-color: var(--amarillo-oscuro);
+    min-width: 100%;
+    padding: 6px 0 10px;
+    border-radius: var(--radius-sm);
+    border-top: none;
+  }
+
+  .dropdown-content .dropdown-mega {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 8px 12px;
+  }
+
+  .dropdown.abierto > .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content li a {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+
+  /* Hero Slider Móvil */
+  .hero-slider {
+    border-radius: var(--radius-sm);
+    max-height: 280px;
+  }
+
+  .slides-wrapper {
+    height: 240px;
+  }
+
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+
+  .slider-btn.prev { left: 8px; }
+  .slider-btn.next { right: 8px; }
+
+  /* Grids Móvil */
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Banner Docentes Móvil */
+  .banner-docentes-block {
+    min-height: 220px;
+  }
+
+  .banner-docentes-content {
+    padding: 24px 18px;
+  }
+
+  .banner-docentes-content h2 {
+    font-size: 1.35rem;
+  }
+
+  .banner-docentes-content p {
+    font-size: 0.92rem;
+  }
+
+  /* Ubicación & Contacto Móvil */
+  .contact-section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-map iframe {
+    min-height: 260px;
+  }
+
+  .contact-info-card {
+    padding: 24px 18px;
+  }
+
+  /* Logos Strip Móvil */
+  .logos-grid {
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .logo-item {
+    max-width: 90px;
+    height: 48px;
+  }
+
+  .logo-item img {
+    max-height: 42px;
+  }
+
+  /* Footer Móvil */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-col.footer-brand {
+    grid-column: span 1;
+  }
+
+  .footer-top {
+    padding: 35px 0 20px;
+  }
+
+  .page-title-banner {
+    padding: 24px 16px;
+  }
+
+  .page-title-banner h1 {
+    font-size: 1.4rem;
+  }
 }

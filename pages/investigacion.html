@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Investigación en el Colegio de Ciencias Agropecuarias de la UAS: Líneas de Generación y Aplicación del Conocimiento (LGAC), Cuerpos Académicos y Redes de Investigación.">
     <title>Investigación - Colegio de Ciencias Agropecuarias UAS</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Hojas de estilo -->
     <link rel="stylesheet" href="../css/styles.css">
@@ -15,12 +21,123 @@
 
     <!-- Contenido Principal -->
     <main class="container">
-        <h1>Investigación</h1>
-        <p>Contenido de la página sobre investigación.</p>
+
+        <!-- Banner de Título -->
+        <div class="page-title-banner" id="lgac">
+            <h1>Investigación Científica</h1>
+            <p>Líneas de Generación y Aplicación del Conocimiento (LGAC), Cuerpos Académicos y Redes</p>
+        </div>
+
+        <!-- Líneas de Investigación -->
+        <section class="section-spacing">
+            <div class="section-header" style="text-align: left;">
+                <h2 class="section-title">LÍNEAS DE INVESTIGACIÓN (LGAC)</h2>
+                <p class="section-subtitle">Campos estratégicos de estudio y desarrollo tecnológico en nuestros posgrados</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- LGAC 1 -->
+                <div class="card-convocatoria">
+                    <div class="card-body">
+                        <span class="card-badge" style="position: static; display: inline-block; margin-bottom: 12px;">LGAC 1</span>
+                        <h3>Sanidad, Biotecnología y Protección Agropecuaria</h3>
+                        <p>
+                            Enfocada en el estudio y control biológico de enfermedades, fitopatología, bacteriófagos líticos, caracterización genotípica de hongos y virus, así como tecnologías biorracionales para el manejo integrado de plagas en cultivos de alto valor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LGAC 2 -->
+                <div class="card-convocatoria">
+                    <div class="card-body">
+                        <span class="card-badge gold" style="position: static; display: inline-block; margin-bottom: 12px;">LGAC 2</span>
+                        <h3>Producción, Nutrición y Salud Animal Sustentable</h3>
+                        <p>
+                            Investigación en fisiología, nutrición, genética y bienestar en especies pecuarias (rumiantes, porcinos, aves), orientada a optimizar la eficiencia productiva reduciendo el impacto ambiental.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LGAC 3 -->
+                <div class="card-convocatoria">
+                    <div class="card-body">
+                        <span class="card-badge" style="position: static; display: inline-block; margin-bottom: 12px;">LGAC 3</span>
+                        <h3>Acuicultura y Ciencias Pesqueras</h3>
+                        <p>
+                            Desarrollo de biotecnología acuícola, inmunología celular en camarón blanco, diagnóstico molecular de patógenos y optimización de sistemas de cultivo sustentable en el litoral del Pacífico.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cuerpos Académicos -->
+        <section class="section-spacing" id="cuerpos">
+            <div class="section-header" style="text-align: left;">
+                <h2 class="section-title">CUERPOS ACADÉMICOS (CA)</h2>
+                <p class="section-subtitle">Grupos colegiados de investigación reconocidos por PRODEP</p>
+            </div>
+
+            <div class="content-band">
+                <h4>🔬 CA-UAS-128: Biotecnología y Protección Vegetal (Consolidado)</h4>
+                <p>
+                    Líneas de trabajo en diagnóstico fitosanitario avanzado, biocontroladores microbianos y mejoramiento de cultivos agrícolas.
+                </p>
+            </div>
+
+            <div class="content-band gold">
+                <h4>🔬 CA-UAS-185: Producción y Salud Animal Sustentable (Consolidado)</h4>
+                <p>
+                    Estudios integrales de medicina veterinaria preventiva, epidemiología pecuaria y nutrición de precisión.
+                </p>
+            </div>
+
+            <div class="content-band">
+                <h4>🔬 CA-UAS-210: Acuicultura y Recursos Acuáticos (En Consolidación)</h4>
+                <p>
+                    Proyectos de investigación aplicados a la sanidad acuícola, inmunología y manejo de recursos costeros.
+                </p>
+            </div>
+        </section>
+
+        <!-- Redes y Tesis en Proceso -->
+        <section class="section-spacing" id="redes">
+            <div class="section-header" style="text-align: left;">
+                <h2 class="section-title">SEGUIMIENTO DE TESIS EN PROCESO</h2>
+                <p class="section-subtitle">Consulta los temas de investigación activos de nuestros estudiantes de Doctorado y Maestría</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card-convocatoria p-4">
+                    <div class="card-body">
+                        <h3>Tesis en Proceso - Doctorado (DCA)</h3>
+                        <p>Explora los proyectos doctorales en desarrollo, sus directores de tesis, cohortes y líneas asociadas.</p>
+                        <a href="doctorado/tesis-en-proceso.html" class="card-btn">
+                            Ver Tabla de Tesis DCA &rarr;
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-convocatoria p-4">
+                    <div class="card-body">
+                        <h3>Tesis en Proceso - Maestría (MCA)</h3>
+                        <p>Consulta los proyectos de grado de maestría activos, comités tutoriales y avances de investigación.</p>
+                        <a href="maestria/tesis-en-proceso.html" class="card-btn gold">
+                            Ver Tabla de Tesis MCA &rarr;
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- Pie de Página Institucional -->
+    <site-footer data-root="../"></site-footer>
 
     <!-- Scripts -->
     <script src="../js/site-header.js"></script>
+    <script src="../js/site-footer.js"></script>
     <script src="../js/menu.js"></script>
 </body>
 </html>

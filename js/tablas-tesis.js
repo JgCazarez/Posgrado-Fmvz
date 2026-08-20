@@ -16,7 +16,7 @@ function inicializarTablaTesis(DATA, config) {
     let filteredData = [...DATA];
 
     function populateCohorteFilter() {
-        const cohortes = [...new Set(DATA.map(item => item.cohorte))].sort();
+        const cohortes = [...new Set(DATA.map(item => item.cohorte))].sort().reverse();
         cohortes.forEach(cohorte => {
             const option = document.createElement('option');
             option.value = cohorte;
@@ -32,17 +32,17 @@ function inicializarTablaTesis(DATA, config) {
         const paginatedData = filteredData.slice(start, end);
 
         if (paginatedData.length === 0) {
-            tesisTbody.innerHTML = '<tr><td colspan="4" class="text-center">No se encontraron resultados para los filtros seleccionados.</td></tr>';
+            tesisTbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-muted">No se encontraron resultados para los filtros seleccionados.</td></tr>';
             return;
         }
 
         paginatedData.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${item.alumno}</td>
+                <td><strong>${item.alumno}</strong></td>
                 <td>${item.tema}</td>
                 <td>${item.comite}</td>
-                <td>${item.cohorte}</td>
+                <td><span class="badge-cohorte">${item.cohorte}</span></td>
             `;
             tesisTbody.appendChild(row);
         });
@@ -53,6 +53,25 @@ function inicializarTablaTesis(DATA, config) {
         const pageCount = Math.ceil(filteredData.length / rowsPerPage);
         
         if (pageCount <= 1) return;
+
+        // Botón Anterior
+        const prevLi = document.createElement('li');
+        prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+        const prevA = document.createElement('a');
+        prevA.className = 'page-link';
+        prevA.href = '#';
+        prevA.innerHTML = '&laquo;';
+        prevA.setAttribute('aria-label', 'Anterior');
+        prevA.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+                setupPagination();
+            }
+        });
+        prevLi.appendChild(prevA);
+        paginationUl.appendChild(prevLi);
 
         for (let i = 1; i <= pageCount; i++) {
             const li = document.createElement('li');
@@ -65,21 +84,42 @@ function inicializarTablaTesis(DATA, config) {
                 e.preventDefault();
                 currentPage = i;
                 renderTable();
-                const currentActive = document.querySelector(`#${paginacionId} .active`);
-                if(currentActive) currentActive.classList.remove('active');
-                li.classList.add('active');
+                setupPagination();
             });
             li.appendChild(a);
             paginationUl.appendChild(li);
         }
+
+        // Botón Siguiente
+        const nextLi = document.createElement('li');
+        nextLi.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
+        const nextA = document.createElement('a');
+        nextA.className = 'page-link';
+        nextA.href = '#';
+        nextA.innerHTML = '&raquo;';
+        nextA.setAttribute('aria-label', 'Siguiente');
+        nextA.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage < pageCount) {
+                currentPage++;
+                renderTable();
+                setupPagination();
+            }
+        });
+        nextLi.appendChild(nextA);
+        paginationUl.appendChild(nextLi);
     }
 
     function applyFiltersAndRender() {
-        const searchTerm = searchInput.value.toLowerCase();
+        const searchTerm = searchInput.value.toLowerCase().trim();
         const selectedCohorte = cohorteFilter.value;
 
         filteredData = DATA.filter(item => {
-            const matchesSearch = item.alumno.toLowerCase().includes(searchTerm);
+            const alumnoMatches = (item.alumno || '').toLowerCase().includes(searchTerm);
+            const temaMatches = (item.tema || '').toLowerCase().includes(searchTerm);
+            const comiteMatches = (item.comite || '').toLowerCase().includes(searchTerm);
+            const matchesSearch = !searchTerm || alumnoMatches || temaMatches || comiteMatches;
+
             const matchesCohorte = selectedCohorte === 'todos' || item.cohorte === selectedCohorte;
             return matchesSearch && matchesCohorte;
         });
