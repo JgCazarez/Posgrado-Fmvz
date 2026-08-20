@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Colegio de Ciencias Agropecuarias de la Universidad Autónoma de Sinaloa (UAS). Programas de Doctorado y Maestría en Ciencias Agropecuarias pertenecientes al Sistema Nacional de Posgrados (SNP/CONAHCYT).">
     <title>Inicio - Colegio de Ciencias Agropecuarias UAS</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Hojas de estilo -->
     <link rel="stylesheet" href="css/styles.css">
@@ -13,57 +19,245 @@
 
 <body>
 
+    <!-- Encabezado Institucional -->
     <site-header data-root="./"></site-header>
 
     <!-- Contenido Principal -->
     <main class="container">
 
-        <!-- Banner -->
-        <section class="hero-banner">
-            <img src="assets/banner-congreso.jpg" alt="Congreso Nacional" class="responsive-img">
+        <!-- =========================================
+             1. HERO SLIDER INTERACTIVO
+        ========================================== -->
+        <section class="hero-slider" aria-label="Banners Principales" tabindex="0">
+            <div class="slides-wrapper">
+                <div class="slide active">
+                    <img src="assets/banner-congreso.jpg" alt="4o. Congreso Nacional de Estudiantes de Posgrado en Ciencias Agropecuarias" loading="eager">
+                </div>
+                <div class="slide">
+                    <img src="assets/slider-doctorado.jpg" alt="Convocatoria Doctorado en Ciencias Agropecuarias 2026" loading="lazy">
+                </div>
+                <div class="slide">
+                    <img src="assets/slider-maestria.jpg" alt="Convocatoria Maestría en Ciencias Agropecuarias 2026" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Controles del Slider -->
+            <button class="slider-btn prev" aria-label="Diapositiva anterior">&#10094;</button>
+            <button class="slider-btn next" aria-label="Siguiente diapositiva">&#10095;</button>
+            <div class="slider-dots" aria-label="Indicadores de diapositivas"></div>
         </section>
 
-        <hr class="divider">
+        <!-- =========================================
+             2. CONVOCATORIAS
+        ========================================== -->
+        <section class="section-spacing convocatorias-section">
+            <div class="section-header">
+                <h2 class="section-title">CONVOCATORIAS</h2>
+                <p class="section-subtitle">Programas de posgrado con reconocimiento en el Sistema Nacional de Posgrados (SNP)</p>
+            </div>
 
-        <!-- Convocatorias -->
-        <section class="convocatorias-section">
-            <h2 class="title-spaced">C O N V O C A T O R I A S</h2>
+            <div class="grid-2">
+                <!-- Card Convocatoria Doctorado -->
+                <article class="card-convocatoria">
+                    <div class="card-img-wrap">
+                        <img src="assets/convocatoria-doctorado.jpg" alt="Convocatoria Doctorado en Ciencias Agropecuarias">
+                        <span class="card-badge">Doctorado</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Doctorado en Ciencias Agropecuarias</h3>
+                        <p>Programa enfocado en la generación de conocimiento innovador y formación de investigadores de alto nivel para el sector agropecuario.</p>
+                        <a href="pages/oferta-educativa.html#doctorado" class="card-btn">
+                            Ver Convocatoria y Requisitos &rarr;
+                        </a>
+                    </div>
+                </article>
 
-            <div class="grid-2-col">
-                <div class="card">
-                    <img src="assets/convocatoria-doctorado.jpg" alt="Convocatoria Doctorado" class="responsive-img">
-                    <p>CONVOCATORIA DOCTORADO</p>
-                </div>
-                <div class="card">
-                    <img src="assets/convocatoria-maestria.jpg" alt="Convocatoria Maestría" class="responsive-img">
-                    <p>CONVOCATORIA MAESTRIA</p>
+                <!-- Card Convocatoria Maestría -->
+                <article class="card-convocatoria">
+                    <div class="card-img-wrap">
+                        <img src="assets/convocatoria-maestria.jpg" alt="Convocatoria Maestría en Ciencias Agropecuarias">
+                        <span class="card-badge gold">Maestría</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Maestría en Ciencias Agropecuarias</h3>
+                        <p>Especialización científica y aplicada en sanidad vegetal, biotecnología, producción pecuaria y acuícola sustentable.</p>
+                        <a href="pages/oferta-educativa.html#maestria" class="card-btn gold">
+                            Ver Convocatoria y Requisitos &rarr;
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- =========================================
+             3. NOTICIAS Y EVENTOS
+        ========================================== -->
+        <section class="section-spacing noticias-section">
+            <div class="section-header">
+                <h2 class="section-title">NOTICIAS Y EVENTOS</h2>
+                <p class="section-subtitle">Últimas actividades académicas, científicas y logros de nuestra comunidad</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Noticia 1: Congreso -->
+                <article class="card-convocatoria">
+                    <div class="card-img-wrap">
+                        <img src="assets/noticia-congreso.jpg" alt="4o Congreso Nacional de Estudiantes de Posgrado">
+                        <span class="card-badge">Evento</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>4o. Congreso Nacional CONAESCA</h3>
+                        <p>Encuentro de estudiantes e investigadores en ciencias agropecuarias para la divulgación de avances científicos.</p>
+                        <a href="https://www.facebook.com/100063508875297/posts/1480521394074809/" target="_blank" rel="noopener noreferrer" class="card-btn">
+                            Leer Más &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Noticia 2: Reconocimiento SNP -->
+                <article class="card-convocatoria">
+                    <div class="card-img-wrap">
+                        <img src="assets/noticia-snp.png" alt="Reconocimiento SNP CONAHCYT">
+                        <span class="card-badge gold">Acreditación</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Reconocimiento en el SNP</h3>
+                        <p>Obtención de la distinción en el Sistema Nacional de Posgrados para los programas de Doctorado y Maestría.</p>
+                        <a href="https://secihti.mx/sistema-nacional-de-posgrados/" target="_blank" rel="noopener noreferrer" class="card-btn gold">
+                            Ver Detalles &rarr;
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Noticia 3: Proyecto de Investigación -->
+                <article class="card-convocatoria">
+                    <div class="card-img-wrap">
+                        <img src="assets/noticia-investigacion.jpg" alt="Proyecto Plantas Medicinales">
+                        <span class="card-badge">Investigación</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Investigación en Plantas Medicinales</h3>
+                        <p>Doctorando de la UAS desarrolla proyecto científico sobre el aprovechamiento y metabolitos de plantas medicinales.</p>
+                        <a href="pages/investigacion.html" class="card-btn">
+                            Conocer Proyectos &rarr;
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- =========================================
+             4. BANNER DESTACADO: NUESTROS DOCENTES
+        ========================================== -->
+        <section class="section-spacing">
+            <div class="banner-docentes-block" style="background-image: url('assets/banner-docentes.jpg');">
+                <div class="banner-docentes-overlay"></div>
+                <div class="banner-docentes-content">
+                    <h2>Nuestros Docentes e Investigadores</h2>
+                    <p>Comprometidos con la excelencia científica, la innovación y la formación integral de los futuros líderes del campo y el sector agroalimentario.</p>
+                    <a href="pages/oferta-educativa.html#dca-nab" class="card-btn gold">
+                        Conoce al Núcleo Académico Básico (NAB) &rarr;
+                    </a>
                 </div>
             </div>
         </section>
 
-        <hr class="divider">
+        <!-- =========================================
+             5. UBICACIÓN Y CONTACTO
+        ========================================== -->
+        <section class="section-spacing">
+            <div class="section-header">
+                <h2 class="section-title">UBICACIÓN Y ATENCIÓN</h2>
+                <p class="section-subtitle">Visítanos en nuestras instalaciones o contáctanos para asesoría académica</p>
+            </div>
 
-        <!-- Noticias -->
-        <section class="noticias-section">
-            <h2 class="title-spaced">NOTICIAS</h2>
-
-            <div class="grid-2-col">
-                <div class="card">
-                    <img src="assets/noticia-congreso.jpg" alt="4o Congreso" class="responsive-img">
-                    <p class="link-blue">4o. Congreso Nacional de Estudiantes de Posgrado en Ciencias Agropecuarias</p>
+            <div class="contact-section-grid">
+                <!-- Mapa Google Maps -->
+                <div class="contact-map">
+                    <iframe 
+                        loading="lazy"
+                        src="https://maps.google.com/maps?q=Facultad%20de%20Medicina%20Veterinaria%20y%20Zootecnia%20UAS%20Culiacan&t=m&z=15&output=embed&iwloc=near"
+                        title="Ubicación Posgrado FMVZ UAS"
+                        aria-label="Mapa de Google Maps de la Facultad de Veterinaria UAS">
+                    </iframe>
                 </div>
-                <div class="card">
-                    <img src="assets/noticia-snp.jpg" alt="SNP" class="responsive-img">
-                    <p class="link-blue">obtención de reconocimiento del SNP, en los porgramas de Doctorado y Maestría
-                        en Ciencias Agropecuarias</p>
+
+                <!-- Tarjeta de Información de Contacto -->
+                <div class="contact-info-card">
+                    <h3>Posgrado CCA - FMVZ</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-text">
+                            <strong>Dirección:</strong>
+                            <span>Boulevard San Ángel 3800, Colonia San Benito, C.P. 80246, Culiacán, Sinaloa, México.</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-text">
+                            <strong>Teléfono Directo:</strong>
+                            <a href="tel:6677181650">(667) 718-1650</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-text">
+                            <strong>Correo Electrónico:</strong>
+                            <a href="mailto:posgradocca@uas.edu.mx">posgradocca@uas.edu.mx</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-text">
+                            <strong>Horario de Atención:</strong>
+                            <span>Lunes a Viernes: 9:00 a 15:00 hrs.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- =========================================
+             6. ALIADOS Y ORGANISMOS ASOCIADOS
+        ========================================== -->
+        <section class="section-spacing">
+            <div class="logos-strip">
+                <div class="logos-grid">
+                    <div class="logo-item" title="Universidad Autónoma de Sinaloa">
+                        <img src="assets/logo-uas.png" alt="Logo UAS">
+                    </div>
+                    <div class="logo-item" title="SECIHTI">
+                        <img src="assets/logo-secihti.png" alt="Logo SECIHTI">
+                    </div>
+                    <div class="logo-item" title="Sistema Nacional de Posgrados">
+                        <img src="assets/logo-snp.png" alt="Logo SNP CONAHCYT">
+                    </div>
+                    <div class="logo-item" title="Facultad de Medicina Veterinaria y Zootecnia">
+                        <img src="assets/logo-fmvz.png" alt="Logo FMVZ">
+                    </div>
+                    <div class="logo-item" title="Facultad de Agronomía">
+                        <img src="assets/logo-fa.png" alt="Logo FA">
+                    </div>
+                    <div class="logo-item" title="FACIMAR">
+                        <img src="assets/logo-facimar.png" alt="Logo FACIMAR">
+                    </div>
+                    <div class="logo-item" title="Escuela Superior de Agricultura del Valle del Carrizo">
+                        <img src="assets/logo-valle.png" alt="Logo Valle del Carrizo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- Pie de Página Institucional -->
+    <site-footer data-root="./"></site-footer>
 
     <!-- Scripts -->
     <script src="js/site-header.js"></script>
+    <script src="js/site-footer.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 
 </html>

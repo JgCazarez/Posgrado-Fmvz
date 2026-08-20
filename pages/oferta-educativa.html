@@ -1,26 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oferta Educativa - Colegio de Ciencias Agropecuarias UAS</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oferta Educativa de Posgrado del Colegio de Ciencias Agropecuarias UAS: Doctorado (DCA) y Maestría (MCA) en Ciencias Agropecuarias.">
+  <title>Oferta Educativa - Colegio de Ciencias Agropecuarias UAS</title>
 
-    <!-- Hojas de estilo -->
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+  <!-- Hojas de estilo -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <style>
+    .program-hub-card {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      padding: 32px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .program-hub-card h2 {
+      color: var(--azul-principal);
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .program-hub-card.gold h2 {
+      color: var(--amarillo-oscuro);
+    }
+    .hub-sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .hub-section-btn {
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      background: #f8fafc;
+      text-decoration: none;
+      color: #1e293b;
+      transition: all var(--transition-fast);
+    }
+    .hub-section-btn:hover {
+      border-color: var(--azul-principal);
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(11, 94, 175, 0.08);
+      color: var(--azul-principal);
+    }
+    .program-hub-card.gold .hub-section-btn:hover {
+      border-color: var(--amarillo-dorado);
+      color: var(--amarillo-oscuro);
+    }
+    .hub-section-btn strong {
+      font-size: 1rem;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .hub-section-btn span {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+  </style>
 </head>
 <body>
 
-    <site-header data-root="../"></site-header>
+  <site-header data-root="../"></site-header>
 
-    <!-- Contenido Principal -->
-    <main class="container">
-        <h1>Oferta Educativa</h1>
-        <p>Contenido de la página sobre la oferta educativa.</p>
-    </main>
+  <main class="container my-4">
+    <div class="page-title-banner">
+      <h1>Oferta Educativa de Posgrado</h1>
+      <p>Programas de Excelencia Acreditados en el Sistema Nacional de Posgrados (SNP - CONAHCYT)</p>
+    </div>
 
-    <!-- Scripts -->
-    <script src="../js/site-header.js"></script>
-    <script src="../js/menu.js"></script>
+    <!-- 1. DOCTORADO EN CIENCIAS AGROPECUARIAS (DCA) -->
+    <section class="program-hub-card" id="doctorado">
+      <h2>DOCTORADO EN CIENCIAS AGROPECUARIAS (DCA)</h2>
+      <p>
+        Programa de posgrado de excelencia orientado a la investigación científica de alto nivel. Consulta cada uno de sus apartados dedicados:
+      </p>
+
+      <div class="hub-sections-grid">
+        <a href="doctorado/general.html" class="hub-section-btn">
+          <strong>Información General &rarr;</strong>
+          <span>Fundamentación, relevancia y pertinencia social</span>
+        </a>
+        <a href="doctorado/plan-de-estudios.html" class="hub-section-btn">
+          <strong>Plan de Estudios &rarr;</strong>
+          <span>Objetivos, metas, mapa curricular y créditos</span>
+        </a>
+        <a href="doctorado/perfiles.html" class="hub-section-btn">
+          <strong>Perfiles de Ingreso / Egreso &rarr;</strong>
+          <span>Competencias, conocimientos y habilidades</span>
+        </a>
+        <a href="doctorado/nucleo-academico.html" class="hub-section-btn">
+          <strong>Núcleo Académico Básico &rarr;</strong>
+          <span>Claustro de profesores e investigadores SNII</span>
+        </a>
+        <a href="doctorado/egresados.html" class="hub-section-btn">
+          <strong>Seguimiento de Egresados &rarr;</strong>
+          <span>Campo laboral, impacto social y vinculación</span>
+        </a>
+        <a href="doctorado/tesis-en-proceso.html" class="hub-section-btn">
+          <strong>Tesis en Proceso &rarr;</strong>
+          <span>Temas de investigación y comités tutoriales</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. MAESTRÍA EN CIENCIAS AGROPECUARIAS (MCA) -->
+    <section class="program-hub-card gold" id="maestria">
+      <h2>MAESTRÍA EN CIENCIAS AGROPECUARIAS (MCA)</h2>
+      <p>
+        Posgrado enfocado en el desarrollo tecnológico, diagnóstico e investigación agroalimentaria sustentable. Consulta cada uno de sus apartados dedicados:
+      </p>
+
+      <div class="hub-sections-grid">
+        <a href="maestria/general.html" class="hub-section-btn">
+          <strong>Información General &rarr;</strong>
+          <span>Fundamentación y objetivos del programa</span>
+        </a>
+        <a href="maestria/plan-de-estudios.html" class="hub-section-btn">
+          <strong>Plan de Estudios &rarr;</strong>
+          <span>Estructura por semestres, horas y créditos</span>
+        </a>
+        <a href="maestria/perfiles.html" class="hub-section-btn">
+          <strong>Perfiles de Ingreso / Egreso &rarr;</strong>
+          <span>Requisitos de admisión y perfil profesional</span>
+        </a>
+        <a href="maestria/nucleo-academico.html" class="hub-section-btn">
+          <strong>Núcleo Académico Básico &rarr;</strong>
+          <span>Docentes e investigadores del NAB</span>
+        </a>
+        <a href="maestria/egresados.html" class="hub-section-btn">
+          <strong>Seguimiento de Egresados &rarr;</strong>
+          <span>Inserción laboral y encuestas de egresados</span>
+        </a>
+        <a href="maestria/tesis-en-proceso.html" class="hub-section-btn">
+          <strong>Tesis en Proceso &rarr;</strong>
+          <span>Proyectos de maestría activos y avances</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <site-footer data-root="../"></site-footer>
+
+  <script src="../js/site-header.js"></script>
+  <script src="../js/site-footer.js"></script>
+  <script src="../js/menu.js"></script>
 </body>
 </html>
