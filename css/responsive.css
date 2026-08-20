@@ -222,4 +222,41 @@
   .page-title-banner h1 {
     font-size: 1.4rem;
   }
+
+  .page-content-simple {
+    padding: 20px 14px !important;
+    margin: 15px auto !important;
+  }
+
+  .page-content-simple h1 {
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 10px !important;
+  }
+
+  .docente-search-card {
+    padding: 12px 14px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .docente-search-card input {
+    padding: 9px 12px !important;
+    font-size: 0.88rem !important;
+  }
+
+  .docente-card {
+    padding: 18px 16px !important;
+  }
+
+  .docente-header {
+    gap: 12px !important;
+  }
+
+  .docente-avatar-img,
+  .docente-avatar {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 1rem !important;
+  }
 }
+

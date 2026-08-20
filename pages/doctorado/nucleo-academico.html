@@ -20,15 +20,38 @@
       color: #000000;
       margin-bottom: 12px;
     }
-    .nab-intro {
-      font-size: 0.98rem;
-      line-height: 1.7;
-      color: #334155;
-      margin-bottom: 24px;
+    .nab-intro-accordion {
+      margin-bottom: 20px;
+    }
+    .nab-intro-accordion summary {
+      font-size: 0.92rem;
+      padding: 10px 16px;
+      background: #f8fafc;
+      color: var(--azul-principal);
+      border-radius: var(--radius-sm);
+    }
+    .nab-intro-accordion .accordion-content {
+      font-size: 0.92rem;
+      line-height: 1.65;
+      padding: 14px 18px;
     }
     @media (max-width: 768px) {
       .page-content-simple {
-        padding: 20px 16px;
+        padding: 18px 14px;
+        margin: 15px auto;
+      }
+      .page-content-simple h1 {
+        font-size: 1.3rem;
+        line-height: 1.25;
+        margin-bottom: 10px;
+      }
+      .docente-search-card {
+        padding: 12px 14px;
+        margin-bottom: 16px;
+      }
+      .docente-search-card input {
+        padding: 9px 12px;
+        font-size: 0.88rem;
       }
     }
   </style>
@@ -40,19 +63,25 @@
     <div class="page-content-simple">
       <h1>Núcleo Académico Básico: Doctorado en Ciencias Agropecuarias</h1>
       
-      <p class="nab-intro">
-        Claustro de Profesores e Investigadores de Tiempo Completo (PTC) que integran el Núcleo Académico Básico (NAB) del Doctorado en Ciencias Agropecuarias. Todos los miembros cuentan con reconocimiento de perfil deseable PRODEP y pertenencia al Sistema Nacional de Investigadoras e Investigadores (SNII - CONAHCYT).
-      </p>
+      <!-- Desplegable compacto de información institucional -->
+      <details class="custom-accordion nab-intro-accordion">
+        <summary>Acerca del Núcleo Académico Básico (NAB)</summary>
+        <div class="accordion-content">
+          <p>
+            Claustro de Profesores e Investigadores de Tiempo Completo (PTC) que integran el Núcleo Académico Básico (NAB) del Doctorado en Ciencias Agropecuarias. Todos los miembros cuentan con reconocimiento de perfil deseable PRODEP y pertenencia al Sistema Nacional de Investigadoras e Investigadores (SNII - CONAHCYT).
+          </p>
+        </div>
+      </details>
 
       <!-- Buscador en tiempo real -->
       <div class="docente-search-card">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
-          <label for="searchDocente" style="font-weight: 700; color: var(--azul-oscuro); font-size: 0.95rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 6px;">
+          <label for="searchDocente" style="font-weight: 700; color: var(--azul-oscuro); font-size: 0.9rem;">
             Buscar Investigador / Docente:
           </label>
-          <span id="docenteCount" style="font-size: 0.85rem; color: var(--texto-mutado); font-weight: 600;"></span>
+          <span id="docenteCount" style="font-size: 0.82rem; color: var(--texto-mutado); font-weight: 600;"></span>
         </div>
-        <input type="text" id="searchDocente" placeholder="Escribe el nombre del docente, correo, facultad o tema de investigación (ej. 'Gaxiola', 'López Orona', 'Parasitología', 'Agronomía')...">
+        <input type="text" id="searchDocente" placeholder="Buscar por nombre, correo, facultad o área...">
       </div>
 
       <!-- Contenedor interactivo de tarjetas de docentes -->
