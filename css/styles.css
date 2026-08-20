@@ -4,9 +4,9 @@
   --azul-principal: #0B5EAF;
   --azul-oscuro: #0A4E94;
   --azul-profundo: #072B56;
-  --amarillo-dorado: #CBA312;
-  --amarillo-oscuro: #AC880B;
-  --amarillo-brillante: #E5BA1A;
+  --amarillo-dorado: #BBB30E;
+  --amarillo-oscuro: #9E940A;
+  --amarillo-brillante: #D4CD1B;
   --blanco: #FFFFFF;
   --gris-fondo: #F8FAFC;
   --gris-card: #F1F5F9;
@@ -19,8 +19,8 @@
   --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.12);
   --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
 }
@@ -32,7 +32,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: Arial, 'Inter', sans-serif;
   background-color: var(--gris-fondo);
   color: var(--texto-cuerpo);
   line-height: 1.6;
@@ -40,7 +40,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', 'Inter', sans-serif;
+  font-family: Arial, 'Montserrat', sans-serif;
   color: var(--texto-oscuro);
   font-weight: 700;
   margin-top: 0;
@@ -63,38 +63,64 @@ img {
 }
 
 /* =========================================
-   HEADER ESCRITORIO
+   HEADER INSTITUCIONAL (COMO EN LA IMAGEN)
 ========================================= */
 site-header {
   display: block;
+  width: 100%;
 }
 
 .site-header {
   background-color: var(--azul-principal);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  max-width: 1350px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 8px 0;
+  height: 96px;
+  position: relative;
+}
+
+/* Cajas blancas con cortes angulares para los logos */
+.logo-box {
+  background: #ffffff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 28px;
+  z-index: 2;
+}
+
+.logo-left {
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%);
+  padding-right: 42px;
+  padding-left: 20px;
+}
+
+.logo-right {
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+  padding-left: 42px;
+  padding-right: 20px;
 }
 
 .logo {
-  height: 90px;
+  height: 72px;
+  width: auto;
   object-fit: contain;
 }
 
 .header-titles {
   flex: 1;
-  min-width: 0;
   text-align: center;
   color: var(--blanco);
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 .header-titles h1 {
@@ -104,37 +130,38 @@ site-header {
   color: var(--blanco);
   text-transform: uppercase;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .header-subtitle {
   background-color: var(--azul-oscuro);
   color: var(--blanco);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.45em;
   margin: 0;
-  padding: 8px 0 8px 0.45em;
+  padding: 8px 0;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-btn {
-  display: none; /* Oculto en desktop */
+  display: none; /* Oculto en PC */
 }
 
 /* =========================================
-   MENÚ DE NAVEGACIÓN
+   BARRA DE NAVEGACIÓN AMARILLA INSTITUCIONAL
 ========================================= */
 .main-nav {
   background-color: var(--amarillo-dorado);
-  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
   position: relative;
   z-index: 1000;
 }
 
 .nav-container {
-  width: 90%;
-  max-width: 1350px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -143,41 +170,46 @@ site-header {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 4px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
 }
 
 .nav-list > li {
   position: relative;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: stretch;
+}
+
+.nav-list > li:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-list > li > a {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 14px 12px;
+  justify-content: center;
+  padding: 12px 10px;
   color: var(--blanco);
   text-decoration: none;
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: background-color var(--transition-fast), color var(--transition-fast);
-  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  transition: background-color var(--transition-fast);
 }
 
-.nav-list > li > a:hover,
-.nav-list > li.active > a {
+.nav-list > li > a:hover {
   background-color: var(--amarillo-oscuro);
   color: var(--blanco);
 }
 
 /* Flechita para menús desplegables */
 .nav-list .dropdown > a::after {
-  content: '▾';
+  content: ' ▾';
   font-size: 0.8em;
-  margin-left: 2px;
+  margin-left: 4px;
 }
 
 /* Submenús */
@@ -185,27 +217,34 @@ site-header {
   display: none;
   position: absolute;
   background-color: var(--amarillo-dorado);
-  min-width: 260px;
-  box-shadow: var(--shadow-lg);
-  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  min-width: 270px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   top: 100%;
   left: 0;
-  padding: 6px 0;
+  padding: 0;
   margin: 0;
   list-style: none;
-  border-top: 3px solid var(--azul-principal);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-content li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dropdown-content li:last-child {
+  border-bottom: none;
 }
 
 .dropdown-content li a {
   display: block;
-  padding: 9px 16px;
+  padding: 10px 16px;
   text-align: left;
   color: var(--blanco);
   font-size: 0.88rem;
-  font-weight: 500;
+  font-weight: 600;
   white-space: nowrap;
-  transition: background var(--transition-fast), padding-left var(--transition-fast);
+  transition: background-color var(--transition-fast), padding-left var(--transition-fast);
 }
 
 .dropdown-content li a:hover {
@@ -223,7 +262,7 @@ site-header {
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(4px);
   }
   to {
     opacity: 1;
@@ -232,10 +271,10 @@ site-header {
 }
 
 /* =========================================
-   MEGA MENÚ DROPDOWN
+   MEGA MENÚ DROPDOWN (OFERTA EDUCATIVA)
 ========================================= */
 .dropdown-content.mega-menu {
-  min-width: 580px;
+  min-width: 620px;
   padding: 16px;
 }
 
@@ -246,14 +285,14 @@ site-header {
 }
 
 .dropdown-column h3 {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 800;
-  color: var(--azul-profundo);
+  color: #000;
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   padding-bottom: 6px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
-  letter-spacing: 0.03em;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.02em;
 }
 
 .dropdown-column ul {
@@ -262,18 +301,21 @@ site-header {
   margin: 0;
 }
 
+.dropdown-column ul li {
+  border-bottom: none;
+}
+
 .dropdown-column ul li a {
-  padding: 6px 0;
-  font-weight: 500;
+  padding: 7px 0;
+  font-weight: 600;
   font-size: 0.86rem;
   white-space: normal;
 }
 
 .dropdown-column ul li a:hover {
   padding-left: 6px;
-  background: transparent;
-  color: var(--azul-profundo);
-  font-weight: 700;
+  background-color: transparent;
+  color: #000;
 }
 
 /* =========================================
@@ -822,7 +864,7 @@ site-footer {
 
 .badge-snp {
   display: inline-block;
-  background: rgba(203, 163, 18, 0.2);
+  background: rgba(187, 179, 14, 0.2);
   border: 1px solid var(--amarillo-dorado);
   color: var(--amarillo-brillante);
   padding: 6px 12px;
@@ -856,16 +898,23 @@ site-footer {
 .page-title-banner {
   background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-oscuro) 100%);
   color: var(--blanco);
-  padding: 35px 25px;
+  padding: 30px 25px;
   border-radius: var(--radius-md);
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   box-shadow: var(--shadow-sm);
+  text-align: center;
 }
 
 .page-title-banner h1 {
   color: var(--blanco);
-  font-size: 1.9rem;
+  font-size: 1.85rem;
   margin-bottom: 6px;
+}
+
+.page-title-banner p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0;
+  font-size: 0.95rem;
 }
 
 .content-card {
