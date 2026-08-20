@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DCA: Núcleo Académico Básico y Docentes - CCA-UAS</title>
+  <title>DCA: Docentes y Núcleo Académico Básico - CCA-UAS</title>
   <link rel="stylesheet" href="../../css/styles.css">
   <link rel="stylesheet" href="../../css/responsive.css">
   <style>
@@ -12,13 +12,19 @@
       padding: 40px 45px;
       margin: 30px auto;
       border-radius: 4px;
-      max-width: 1100px;
+      max-width: 1200px;
     }
     .page-content-simple h1 {
       font-size: 1.75rem;
       font-weight: 800;
       color: #000000;
-      margin-bottom: 25px;
+      margin-bottom: 12px;
+    }
+    .nab-intro {
+      font-size: 0.98rem;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 24px;
     }
     @media (max-width: 768px) {
       .page-content-simple {
@@ -33,49 +39,35 @@
   <main class="container">
     <div class="page-content-simple">
       <h1>Núcleo Académico Básico: Doctorado en Ciencias Agropecuarias</h1>
-
-      <p style="margin-bottom: 24px;">
-        Profesores e Investigadores de Tiempo Completo (PTC) que integran el claustro académico del Doctorado en Ciencias Agropecuarias, reconocidos por el Sistema Nacional de Investigadoras e Investigadores (SNII):
+      
+      <p class="nab-intro">
+        Claustro de Profesores e Investigadores de Tiempo Completo (PTC) que integran el Núcleo Académico Básico (NAB) del Doctorado en Ciencias Agropecuarias. Todos los miembros cuentan con reconocimiento de perfil deseable PRODEP y pertenencia al Sistema Nacional de Investigadoras e Investigadores (SNII - CONAHCYT).
       </p>
 
-      <div style="overflow-x: auto;">
-        <table class="tabla-curricular">
-          <thead>
-            <tr>
-              <th style="width: 5%;">#</th>
-              <th>Profesor / Investigador</th>
-              <th>Grado</th>
-              <th>SNII</th>
-              <th>Cuerpo Académico</th>
-              <th>Unidad Académica</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1</td><td><strong>Dr. Héctor Samuel López Moreno</strong></td><td>Doctorado</td><td>Nivel I</td><td>Biotecnología y Protección Vegetal</td><td>Facultad de Agronomía</td></tr>
-            <tr><td>2</td><td><strong>Dra. Mayra Denise Herrera Félix</strong></td><td>Doctorado</td><td>Nivel I</td><td>Biotecnología y Protección Vegetal</td><td>Facultad de Agronomía</td></tr>
-            <tr><td>3</td><td><strong>Dr. José Crispín Duarte Zamorano</strong></td><td>Doctorado</td><td>Nivel I</td><td>Biotecnología y Protección Vegetal</td><td>Facultad de Agronomía</td></tr>
-            <tr><td>4</td><td><strong>Dr. Rogelio Ramos Salguero</strong></td><td>Doctorado</td><td>Nivel I</td><td>Producción y Salud Animal</td><td>FMVZ Culiacán</td></tr>
-            <tr><td>5</td><td><strong>Dr. Jaime Robinson Félix</strong></td><td>Doctorado</td><td>Nivel I</td><td>Producción y Salud Animal</td><td>FMVZ Culiacán</td></tr>
-            <tr><td>6</td><td><strong>Dr. Carlos Bell Castro del Campo</strong></td><td>Doctorado</td><td>Nivel II</td><td>Producción y Salud Animal</td><td>FMVZ Culiacán</td></tr>
-            <tr><td>7</td><td><strong>Dr. José Armando Ayala Sánchez</strong></td><td>Doctorado</td><td>Nivel I</td><td>Producción y Salud Animal</td><td>FMVZ Culiacán</td></tr>
-            <tr><td>8</td><td><strong>Dr. Roberto Gutiérrez Dorado</strong></td><td>Doctorado</td><td>Nivel II</td><td>Biotecnología Agroalimentaria</td><td>FCQB / FMVZ</td></tr>
-            <tr><td>9</td><td><strong>Dra. Edith Oliva Cuevas Rodríguez</strong></td><td>Doctorado</td><td>Nivel I</td><td>Biotecnología Agroalimentaria</td><td>FCQB / FMVZ</td></tr>
-            <tr><td>10</td><td><strong>Dr. Juan Manuel Romo Rubio</strong></td><td>Doctorado</td><td>Nivel I</td><td>Producción y Salud Animal</td><td>FMVZ Culiacán</td></tr>
-            <tr><td>11</td><td><strong>Dr. César Martín Valdés García</strong></td><td>Doctorado</td><td>Nivel I</td><td>Producción y Salud Animal</td><td>FMVZ Culiacán</td></tr>
-            <tr><td>12</td><td><strong>Dr. Noé Montes García</strong></td><td>Doctorado</td><td>Nivel I</td><td>Protección y Sanidad Vegetal</td><td>Facultad de Agronomía</td></tr>
-            <tr><td>13</td><td><strong>Dr. Jesús Alicia Morales Morales</strong></td><td>Doctorado</td><td>Nivel I</td><td>Acuicultura y Recursos Acuáticos</td><td>FACIMAR</td></tr>
-            <tr><td>14</td><td><strong>Dr. Jorge Saúl Hernández Zepeda</strong></td><td>Doctorado</td><td>Nivel I</td><td>Biotecnología y Sanidad</td><td>Facultad de Agronomía</td></tr>
-          </tbody>
-        </table>
+      <!-- Buscador en tiempo real -->
+      <div class="docente-search-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+          <label for="searchDocente" style="font-weight: 700; color: var(--azul-oscuro); font-size: 0.95rem;">
+            🔍 Buscar Investigador / Docente:
+          </label>
+          <span id="docenteCount" style="font-size: 0.85rem; color: var(--texto-mutado); font-weight: 600;"></span>
+        </div>
+        <input type="text" id="searchDocente" placeholder="Escribe el nombre del docente, correo, facultad o tema de investigación (ej. 'Gaxiola', 'López Orona', 'Parasitología', 'Agronomía')...">
       </div>
+
+      <!-- Contenedor interactivo de tarjetas de docentes -->
+      <div class="docentes-grid" id="docentesContainer"></div>
 
     </div>
   </main>
 
   <site-footer data-root="../../"></site-footer>
 
+  <!-- Scripts -->
   <script src="../../js/site-header.js"></script>
   <script src="../../js/site-footer.js"></script>
   <script src="../../js/menu.js"></script>
+  <script src="../../js/docentes-data.js"></script>
+  <script src="../../js/docentes-render.js"></script>
 </body>
 </html>

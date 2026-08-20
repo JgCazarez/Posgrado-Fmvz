@@ -1064,3 +1064,157 @@ site-footer {
   color: #0f172a;
 }
 
+/* =========================================
+   TARJETAS DE DOCENTES / NAB (INSPIRADO EN OEDCAD1)
+========================================= */
+.docente-search-card {
+  background: #ffffff;
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 25px;
+  box-shadow: var(--shadow-sm);
+}
+
+.docente-search-card input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.docente-search-card input:focus {
+  border-color: var(--azul-principal);
+  box-shadow: 0 0 0 3px rgba(11, 94, 175, 0.15);
+}
+
+.docentes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
+  gap: 22px;
+}
+
+@media (max-width: 768px) {
+  .docentes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.docente-card {
+  background: #ffffff;
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.docente-card:hover {
+  border-color: var(--azul-principal);
+  box-shadow: 0 4px 14px rgba(11, 94, 175, 0.08);
+}
+
+.docente-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.docente-avatar-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--amarillo-dorado);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  background-color: #f1f5f9;
+}
+
+.docente-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--azul-principal) 0%, var(--azul-oscuro) 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+  border: 2px solid var(--amarillo-dorado);
+}
+
+.docente-info {
+  flex: 1;
+}
+
+.docente-info h3 {
+  font-size: 1.12rem;
+  color: var(--azul-oscuro);
+  margin: 0 0 4px 0;
+  font-weight: 700;
+}
+
+.docente-cargo {
+  font-size: 0.85rem;
+  color: var(--texto-mutado);
+  margin-bottom: 6px;
+}
+
+.docente-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.badge-docente {
+  background: #e2e8f0;
+  color: #1e293b;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-docente.gold {
+  background: rgba(187, 179, 14, 0.15);
+  color: #787000;
+  border: 1px solid rgba(187, 179, 14, 0.4);
+}
+
+.badge-docente.blue {
+  background: rgba(11, 94, 175, 0.1);
+  color: var(--azul-principal);
+  border: 1px solid rgba(11, 94, 175, 0.3);
+}
+
+.docente-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--azul-principal);
+  font-weight: 600;
+  text-decoration: none;
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.docente-email:hover {
+  background: #e2e8f0;
+  color: var(--azul-oscuro);
+}
+
+
