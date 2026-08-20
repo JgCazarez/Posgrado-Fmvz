@@ -1,6 +1,6 @@
 /**
  * Renderizador interactivo de Docentes y Núcleo Académico Básico (NAB)
- * Proporciona filtrado en tiempo real, fotos oficiales y desplegables para la semblanza curricular.
+ * Proporciona filtrado en tiempo real y panel lateral deslizante (Drawer) para la semblanza curricular.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!container || typeof DATA_DOCENTES === 'undefined') return;
 
-  // Determine root prefix based on current pathname
+  // Determinar prefijo de ruta para recursos
   const path = window.location.pathname;
   let root = '../../';
   if (path.endsWith('index.html') || path.endsWith('/')) {
@@ -19,9 +19,108 @@ document.addEventListener('DOMContentLoaded', () => {
     root = '../';
   }
 
+  // Inyectar componente Drawer en el DOM si no existe
+  let backdrop = document.getElementById('docenteDrawerBackdrop');
+  let drawer = document.getElementById('docenteDrawer');
+
+  if (!drawer) {
+    const drawerHtml = `
+      <div class="docente-drawer-backdrop" id="docenteDrawerBackdrop"></div>
+      <aside class="docente-drawer" id="docenteDrawer" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="drawerNombre">
+        <div class="docente-drawer-header">
+          <div class="drawer-header-left">
+            <div id="drawerAvatarContainer"></div>
+            <div class="drawer-titles">
+              <h2 id="drawerNombre"></h2>
+              <p id="drawerCargo"></p>
+              <div class="docente-badges" id="drawerBadges"></div>
+            </div>
+          </div>
+          <button class="drawer-close-btn" id="drawerCloseBtn" aria-label="Cerrar panel">✕</button>
+        </div>
+        <div class="docente-drawer-body">
+          <div class="drawer-contact-section" id="drawerContactSection">
+            <div class="drawer-contact-label">Contacto Institucional</div>
+            <a href="#" class="drawer-contact-email" id="drawerEmail"></a>
+          </div>
+          <div class="drawer-bio-section">
+            <h3>Semblanza Curricular y Trayectoria</h3>
+            <div class="drawer-bio-text" id="drawerBio"></div>
+          </div>
+        </div>
+      </aside>
+    `;
+    document.body.insertAdjacentHTML('beforeend', drawerHtml);
+    backdrop = document.getElementById('docenteDrawerBackdrop');
+    drawer = document.getElementById('docenteDrawer');
+  }
+
+  const drawerAvatarContainer = document.getElementById('drawerAvatarContainer');
+  const drawerNombre = document.getElementById('drawerNombre');
+  const drawerCargo = document.getElementById('drawerCargo');
+  const drawerBadges = document.getElementById('drawerBadges');
+  const drawerEmail = document.getElementById('drawerEmail');
+  const drawerBio = document.getElementById('drawerBio');
+  const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+
+  // Funciones de control del Drawer
+  function openDrawer(docente) {
+    if (!docente) return;
+
+    const cleanName = docente.nombre.replace(/^(Dr\.|Dra\.)\s*/i, '').trim();
+    const initials = cleanName.split(' ').slice(0, 2).map(n => n[0]).join('').toUpperCase();
+    const photoSrc = docente.foto ? (root + docente.foto) : '';
+
+    if (photoSrc) {
+      drawerAvatarContainer.innerHTML = `<img src="${photoSrc}" alt="${docente.nombre}" class="drawer-avatar-img" onerror="this.outerHTML='<div class=\\'drawer-avatar\\'>${initials}</div>'">`;
+    } else {
+      drawerAvatarContainer.innerHTML = `<div class="drawer-avatar">${initials}</div>`;
+    }
+
+    drawerNombre.textContent = docente.nombre;
+    drawerCargo.textContent = docente.cargo;
+    drawerBadges.innerHTML = `
+      <span class="badge-docente gold">SNII CONAHCYT</span>
+      <span class="badge-docente blue">Perfil PRODEP</span>
+    `;
+
+    if (docente.email) {
+      drawerEmail.href = `mailto:${docente.email}`;
+      drawerEmail.textContent = docente.email;
+      document.getElementById('drawerContactSection').style.display = 'block';
+    } else {
+      document.getElementById('drawerContactSection').style.display = 'none';
+    }
+
+    // Formatear la semblanza con párrafos si contiene saltos o puntos clave
+    drawerBio.innerHTML = `<p>${docente.semblanza}</p>`;
+
+    drawer.classList.add('active');
+    backdrop.classList.add('active');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer.classList.remove('active');
+    backdrop.classList.remove('active');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+  if (backdrop) backdrop.addEventListener('click', closeDrawer);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer && drawer.classList.contains('active')) {
+      closeDrawer();
+    }
+  });
+
+  // Renderizado de las tarjetas en la cuadrícula
   function render(list) {
     container.innerHTML = '';
-    
+
     if (countDisplay) {
       countDisplay.textContent = `${list.length} docente${list.length === 1 ? '' : 's'} encontrado${list.length === 1 ? '' : 's'}`;
     }
@@ -38,8 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    list.forEach(docente => {
-      // Get initials for fallback
+    list.forEach((docente) => {
       const cleanName = docente.nombre.replace(/^(Dr\.|Dra\.)\s*/i, '').trim();
       const initials = cleanName.split(' ').slice(0, 2).map(n => n[0]).join('').toUpperCase();
       const photoSrc = docente.foto ? (root + docente.foto) : '';
@@ -70,23 +168,22 @@ document.addEventListener('DOMContentLoaded', () => {
           </a>
         ` : ''}
 
-        <!-- Desplegable Semblanza Curricular -->
-        <details class="custom-accordion" style="margin-top: auto; margin-bottom: 0;">
-          <summary style="font-size: 0.92rem; padding: 12px 16px;">Ver Semblanza Curricular</summary>
-          <div class="accordion-content" style="font-size: 0.9rem; padding: 16px;">
-            <p>${docente.semblanza}</p>
-          </div>
-        </details>
+        <button type="button" class="btn-ver-perfil" title="Ver semblanza curricular y trayectoria">
+          Ver Semblanza Completa &rarr;
+        </button>
       `;
+
+      const btn = card.querySelector('.btn-ver-perfil');
+      btn.addEventListener('click', () => openDrawer(docente));
 
       container.appendChild(card);
     });
   }
 
-  // Initial render
+  // Render inicial
   render(DATA_DOCENTES);
 
-  // Instant filter
+  // Filtro en tiempo real
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase().trim();
@@ -97,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filtered = DATA_DOCENTES.filter(d => {
         return d.nombre.toLowerCase().includes(q) ||
-               d.email.toLowerCase().includes(q) ||
-               d.semblanza.toLowerCase().includes(q);
+          d.email.toLowerCase().includes(q) ||
+          d.semblanza.toLowerCase().includes(q);
       });
 
       render(filtered);
