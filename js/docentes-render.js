@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         ${docente.email ? `
           <a href="mailto:${docente.email}" class="docente-email" title="Enviar correo electrónico">
-            ✉️ ${docente.email}
+            ${docente.email}
           </a>
         ` : ''}
 

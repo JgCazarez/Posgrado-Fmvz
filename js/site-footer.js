@@ -32,29 +32,25 @@ class SiteFooter extends HTMLElement {
               </ul>
             </div>
 
-            <!-- Columna 3: Contacto y Horarios -->
+            <!-- Columna 3: Ubicación y Contacto -->
             <div class="footer-col">
-              <h4 class="footer-heading">Contacto y Ubicación</h4>
+              <h4 class="footer-heading">Contacto Institucional</h4>
               <ul class="footer-contact-list">
                 <li>
-                  <span class="contact-icon">📍</span>
-                  <span>Boulevard San Ángel 3800, Col. San Benito, C.P. 80246, Culiacán, Sinaloa, México.</span>
+                  <span><strong>Dirección:</strong> Blvd. San Ángel 3800, Fracc. San Benito, C.P. 80246, Culiacán, Sinaloa.</span>
                 </li>
                 <li>
-                  <span class="contact-icon">📞</span>
-                  <a href="tel:6677181650">(667) 718-1650</a>
+                  <span><strong>Teléfono:</strong> <a href="tel:6677181650">(667) 718-1650</a></span>
                 </li>
                 <li>
-                  <span class="contact-icon">✉️</span>
-                  <a href="mailto:posgradocca@uas.edu.mx">posgradocca@uas.edu.mx</a>
+                  <span><strong>Correo:</strong> <a href="mailto:posgradocca@uas.edu.mx">posgradocca@uas.edu.mx</a></span>
                 </li>
                 <li>
-                  <span class="contact-icon">🕒</span>
-                  <span>Lunes a Viernes: 9:00 – 15:00 hrs.</span>
+                  <span><strong>Horario:</strong> Lunes a Viernes de 9:00 a 15:00 hrs.</span>
                 </li>
               </ul>
               <div class="footer-badges">
-                <span class="badge-snp">Perteneciente al SNP / CONAHCYT</span>
+                <span class="badge-snp">SNP - CONAHCYT</span>
               </div>
             </div>
           </div>
