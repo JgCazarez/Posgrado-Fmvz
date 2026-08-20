@@ -21,11 +21,12 @@ class SiteFooter extends HTMLElement {
               <h4 class="footer-heading">Enlaces Rápidos</h4>
               <ul class="footer-links">
                 <li><a href="${root}index.html">Inicio</a></li>
-                <li><a href="${root}pages/nosotros.html">Nosotros / Misión y Visión</a></li>
-                <li><a href="${root}pages/nosotros.html#directorio">Directorio Institucional</a></li>
+                <li><a href="${root}pages/nosotros/mensaje-de-bienvenida.html">Mensaje de Bienvenida</a></li>
+                <li><a href="${root}pages/nosotros/dca-objetivo-mision-vision.html">DCA: Misión, Visión y Metas</a></li>
+                <li><a href="${root}pages/nosotros/mca-objetivo-mision-vision.html">MCA: Misión, Visión y Metas</a></li>
+                <li><a href="${root}pages/nosotros/directorio.html">Directorio Institucional</a></li>
                 <li><a href="${root}pages/oferta-educativa.html#doctorado">Doctorado en Ciencias Agropecuarias</a></li>
                 <li><a href="${root}pages/oferta-educativa.html#maestria">Maestría en Ciencias Agropecuarias</a></li>
-                <li><a href="${root}pages/investigacion.html">Líneas de Investigación (LGAC)</a></li>
                 <li><a href="${root}pages/doctorado/tesis-en-proceso.html">Tesis DCA en Proceso</a></li>
                 <li><a href="${root}pages/maestria/tesis-en-proceso.html">Tesis MCA en Proceso</a></li>
               </ul>

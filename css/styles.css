@@ -955,3 +955,112 @@ site-footer {
   font-weight: 700;
   font-size: 0.82rem;
 }
+
+/* =========================================
+   DESPLEGABLES / ACCORDIONS NATIVOS
+========================================= */
+.custom-accordion {
+  margin-bottom: 16px;
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.custom-accordion[open] {
+  border-color: var(--azul-principal);
+  box-shadow: 0 4px 14px rgba(11, 94, 175, 0.08);
+}
+
+.custom-accordion summary {
+  padding: 16px 22px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--azul-principal);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  background: #f8fafc;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.custom-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.custom-accordion summary:hover {
+  background: #f1f5f9;
+  color: var(--azul-oscuro);
+}
+
+.custom-accordion summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--azul-principal);
+  line-height: 1;
+}
+
+.custom-accordion[open] summary::after {
+  content: '−';
+}
+
+.custom-accordion .accordion-content {
+  padding: 22px 24px;
+  border-top: 1px solid var(--gris-borde);
+  background: #ffffff;
+  line-height: 1.7;
+  color: var(--texto-cuerpo);
+}
+
+.custom-accordion .accordion-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tablas Curriculares */
+.tabla-curricular {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  font-size: 0.92rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.tabla-curricular thead {
+  background-color: var(--azul-principal);
+  color: #ffffff;
+}
+
+.tabla-curricular th {
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 700;
+}
+
+.tabla-curricular td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--gris-borde);
+  vertical-align: middle;
+}
+
+.tabla-curricular tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.tabla-curricular tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+.tabla-curricular .total-row {
+  background-color: #fff9e6 !important;
+  font-weight: 700;
+  color: #0f172a;
+}
+

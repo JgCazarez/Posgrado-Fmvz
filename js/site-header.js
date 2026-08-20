@@ -47,14 +47,14 @@ class SiteHeader extends HTMLElement {
             
             <!-- 2. Nosotros -->
             <li class="dropdown">
-              <a href="${root}pages/nosotros.html">Nosotros</a>
+              <a href="${root}pages/nosotros/mensaje-de-bienvenida.html">Nosotros</a>
               <ul class="dropdown-content">
-                <li><a href="${root}pages/nosotros.html#bienvenida">Mensaje de Bienvenida</a></li>
-                <li><a href="${root}pages/nosotros.html#dca-mision">DCA: Objetivo, Misión Visión y Metas</a></li>
-                <li><a href="${root}pages/nosotros.html#mca-mision">MCA: Objetivo, Misión Visión y Metas</a></li>
-                <li><a href="${root}pages/nosotros.html#normatividad">Normatividad</a></li>
-                <li><a href="${root}pages/nosotros.html#logos">LOGOS</a></li>
-                <li><a href="${root}pages/nosotros.html#directorio">Directorio</a></li>
+                <li><a href="${root}pages/nosotros/mensaje-de-bienvenida.html">Mensaje de Bienvenida</a></li>
+                <li><a href="${root}pages/nosotros/dca-objetivo-mision-vision.html">DCA: Objetivo, Misión Visión y Metas</a></li>
+                <li><a href="${root}pages/nosotros/mca-objetivo-mision-vision.html">MCA: Objetivo, Misión Visión y Metas</a></li>
+                <li><a href="${root}pages/nosotros/normatividad.html">Normatividad</a></li>
+                <li><a href="${root}pages/nosotros/logos.html">LOGOS</a></li>
+                <li><a href="${root}pages/nosotros/directorio.html">Directorio</a></li>
               </ul>
             </li>
 
@@ -79,23 +79,23 @@ class SiteHeader extends HTMLElement {
                   <div class="dropdown-column">
                     <h3>DOCTORADO EN CIENCIAS AGROPECUARIAS</h3>
                     <ul>
-                      <li><a href="${root}pages/oferta-educativa.html#dca-general">General</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#dca-plan">Plan de Estudios Doctorado</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#dca-perfiles">Perfiles</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#dca-nab">Docentes</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#dca-nab">Núcleo Académico Básico</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#egresados">Egresados</a></li>
+                      <li><a href="${root}pages/doctorado/general.html">General</a></li>
+                      <li><a href="${root}pages/doctorado/plan-de-estudios.html">Plan de Estudios Doctorado</a></li>
+                      <li><a href="${root}pages/doctorado/perfiles.html">Perfiles</a></li>
+                      <li><a href="${root}pages/doctorado/nucleo-academico.html">Docentes</a></li>
+                      <li><a href="${root}pages/doctorado/nucleo-academico.html">Núcleo Académico Básico</a></li>
+                      <li><a href="${root}pages/doctorado/egresados.html">Egresados</a></li>
                     </ul>
                   </div>
                   <div class="dropdown-column">
                     <h3>MAESTRÍA EN CIENCIAS AGROPECUARIAS</h3>
                     <ul>
-                      <li><a href="${root}pages/oferta-educativa.html#mca-general">General</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#mca-plan">Plan de Estudios</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#mca-perfiles">Perfiles</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#mca-nab">Docentes</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#mca-nab">Núcleo Académico Básico</a></li>
-                      <li><a href="${root}pages/oferta-educativa.html#egresados">Egresados</a></li>
+                      <li><a href="${root}pages/maestria/general.html">General</a></li>
+                      <li><a href="${root}pages/maestria/plan-de-estudios.html">Plan de Estudios</a></li>
+                      <li><a href="${root}pages/maestria/perfiles.html">Perfiles</a></li>
+                      <li><a href="${root}pages/maestria/nucleo-academico.html">Docentes</a></li>
+                      <li><a href="${root}pages/maestria/nucleo-academico.html">Núcleo Académico Básico</a></li>
+                      <li><a href="${root}pages/maestria/egresados.html">Egresados</a></li>
                     </ul>
                   </div>
                 </div>
@@ -120,8 +120,8 @@ class SiteHeader extends HTMLElement {
             <li class="dropdown">
               <a href="#">Seguimiento de Egresados</a>
               <ul class="dropdown-content">
-                <li><a href="${root}pages/oferta-educativa.html#egresados">MCA: Seguimiento de Egresados</a></li>
-                <li><a href="${root}pages/oferta-educativa.html#egresados">DCA: Seguimiento de Egresados</a></li>
+                <li><a href="${root}pages/doctorado/egresados.html">DCA: Seguimiento de Egresados</a></li>
+                <li><a href="${root}pages/maestria/egresados.html">MCA: Seguimiento de Egresados</a></li>
               </ul>
             </li>
 
@@ -132,9 +132,9 @@ class SiteHeader extends HTMLElement {
                 <li><a href="${root}index.html#convocatorias">Convocatorias</a></li>
                 <li><a href="${root}pages/maestria/tesis-en-proceso.html">MCA: Estudiantes Matriculados</a></li>
                 <li><a href="${root}pages/doctorado/tesis-en-proceso.html">DCA: Estudiantes Matriculados</a></li>
-                <li><a href="${root}pages/nosotros.html#normatividad">MCA: Procesos Administrativos</a></li>
-                <li><a href="${root}pages/nosotros.html#normatividad">DCA: Procesos Administrativos</a></li>
-                <li><a href="${root}pages/nosotros.html#normatividad">Formatos</a></li>
+                <li><a href="${root}pages/nosotros/normatividad.html">MCA: Procesos Administrativos</a></li>
+                <li><a href="${root}pages/nosotros/normatividad.html">DCA: Procesos Administrativos</a></li>
+                <li><a href="${root}pages/nosotros/normatividad.html">Formatos</a></li>
               </ul>
             </li>
 
