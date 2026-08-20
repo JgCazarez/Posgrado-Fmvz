@@ -17,7 +17,34 @@ class SiteHeader extends HTMLElement {
             <li><a href="${root}index.html">Inicio</a></li>
             <li class="dropdown"><a href="${root}pages/nosotros.html">Nosotros</a><ul class="dropdown-content"><li><a href="${root}pages/nosotros.html#mision-vision">Misión y Visión</a></li><li><a href="${root}pages/nosotros.html#historia">Historia</a></li><li><a href="${root}pages/nosotros.html#directorio">Directorio</a></li></ul></li>
             <li class="dropdown"><a href="${root}pages/investigacion.html">Investigación</a><ul class="dropdown-content"><li><a href="#">Redes de investigación</a></li><li><a href="#">Líneas de investigación</a></li><li><a href="#">Cuerpos académicos</a></li><li><a href="${root}pages/doctorado/tesis-en-proceso.html">DCA: Tesis en proceso</a></li><li><a href="${root}pages/maestria/tesis-en-proceso.html">MCA: Tesis en proceso</a></li><li><a href="#">Productividad académica relevante</a></li></ul></li>
-            <li class="dropdown"><a href="${root}pages/oferta-educativa.html">Oferta Educativa</a><ul class="dropdown-content"><li><a href="${root}pages/doctorado/tesis-en-proceso.html">Doctorado</a></li><li><a href="${root}pages/maestria/tesis-en-proceso.html">Maestría</a></li></ul></li>
+            <li class="dropdown"><a href="${root}pages/oferta-educativa.html">Oferta Educativa</a>
+              <ul class="dropdown-content mega-menu">
+                <div class="dropdown-mega">
+                  <div class="dropdown-column">
+                    <h3>DOCTORADO EN CIENCIAS AGROPECUARIAS</h3>
+                    <ul>
+                      <li><a href="#">General</a></li>
+                      <li><a href="#">Plan de Estudios Doctorado</a></li>
+                      <li><a href="#">Perfiles</a></li>
+                      <li><a href="#">Docentes</a></li>
+                      <li><a href="#">Núcleo Académico Básico</a></li>
+                      <li><a href="#">Egresados</a></li>
+                    </ul>
+                  </div>
+                  <div class="dropdown-column">
+                    <h3>MAESTRÍA EN CIENCIAS AGROPECUARIAS</h3>
+                    <ul>
+                      <li><a href="#">General</a></li>
+                      <li><a href="#">Plan de Estudios</a></li>
+                      <li><a href="#">Perfiles</a></li>
+                      <li><a href="#">Docentes</a></li>
+                      <li><a href="#">Núcleo Académico Básico</a></li>
+                      <li><a href="#">Egresados</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </ul>
+            </li>
             <li><a href="#">Vinculación</a></li>
             <li class="dropdown"><a href="#">Repositorio de Tesis</a><ul class="dropdown-content"><li><a href="#">Tesis DCA</a></li><li><a href="#">Tesis MCA</a></li></ul></li>
             <li class="dropdown"><a href="#">Seguimiento de Egresados</a><ul class="dropdown-content"><li><a href="#">Formularios</a></li></ul></li>
