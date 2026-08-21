@@ -42,7 +42,7 @@ function inicializarTablaTesis(DATA, config) {
             const row = document.createElement('tr');
             if (formato === 'egresados') {
                 row.innerHTML = `
-                    <td class="text-center"><span class="badge-cohorte">${item.cohorte}</span></td>
+                    <td class="text-center">${item.cohorte}</td>
                     <td><strong>${item.alumno}</strong></td>
                     <td>${item.comite}</td>
                     <td>${item.tema}</td>
@@ -52,7 +52,7 @@ function inicializarTablaTesis(DATA, config) {
                     <td><strong>${item.alumno}</strong></td>
                     <td>${item.tema}</td>
                     <td>${item.comite}</td>
-                    <td class="text-center"><span class="badge-cohorte">${item.cohorte}</span></td>
+                    <td class="text-center">${item.cohorte}</td>
                 `;
             }
             tesisTbody.appendChild(row);
