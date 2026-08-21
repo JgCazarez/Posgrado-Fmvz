@@ -74,18 +74,20 @@ table.tabla-uas td:nth-child(4) {
   text-align: center;
 }
 
-/* ===== FILAS ALTERNADAS ===== */
+/* ===== FILAS ALTERNADAS INSTITUCIONALES (DORADO BAJO Y AZUL BAJO) ===== */
 table.tabla-uas tbody tr:nth-child(odd) > * {
-  background-color: rgba(203, 163, 18, 0.06) !important;
+  background-color: #FCF4DA !important;
+  color: var(--texto) !important;
 }
 
 table.tabla-uas tbody tr:nth-child(even) > * {
-  background-color: rgba(11, 94, 175, 0.04) !important;
+  background-color: #E1E6F1 !important;
+  color: var(--texto) !important;
 }
 
 table.tabla-uas tbody tr:hover > * {
-  background-color: rgba(11, 94, 175, 0.1) !important;
-  transition: background-color 0.15s ease;
+  filter: brightness(0.96);
+  transition: filter 0.15s ease;
 }
 
 /* ===== PAGINACIÓN ===== */

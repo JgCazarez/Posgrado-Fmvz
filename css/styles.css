@@ -1033,46 +1033,75 @@ site-footer {
   margin-bottom: 0;
 }
 
-/* Tablas Curriculares */
-.tabla-curricular {
+/* =========================================
+   ESTILO GENERAL PARA TABLAS (DORADO BAJO Y AZUL BAJO)
+========================================= */
+table.tabla-curricular,
+table.tabla-general,
+.page-content-simple table {
   width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
   font-size: 0.92rem;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
-.tabla-curricular thead {
+table.tabla-curricular thead,
+table.tabla-general thead,
+.page-content-simple table thead {
   background-color: var(--azul-principal);
   color: #ffffff;
+  border-bottom: 3px solid var(--amarillo-dorado);
 }
 
-.tabla-curricular th {
+table.tabla-curricular th,
+table.tabla-general th,
+.page-content-simple table th {
   padding: 12px 14px;
   text-align: left;
   font-weight: 700;
+  color: #ffffff !important;
 }
 
-.tabla-curricular td {
+table.tabla-curricular td,
+table.tabla-general td,
+.page-content-simple table td {
   padding: 11px 14px;
-  border-bottom: 1px solid var(--gris-borde);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   vertical-align: middle;
 }
 
-.tabla-curricular tbody tr:nth-child(even) {
-  background-color: #f8fafc;
+/* Filas alternadas institucionales */
+table.tabla-curricular tbody tr:nth-child(odd),
+table.tabla-general tbody tr:nth-child(odd),
+.page-content-simple table tbody tr:nth-child(odd) {
+  background-color: #FCF4DA !important;
+  color: #0F172A !important;
 }
 
-.tabla-curricular tbody tr:hover {
-  background-color: #f1f5f9;
+table.tabla-curricular tbody tr:nth-child(even),
+table.tabla-general tbody tr:nth-child(even),
+.page-content-simple table tbody tr:nth-child(even) {
+  background-color: #E1E6F1 !important;
+  color: #0F172A !important;
 }
 
-.tabla-curricular .total-row {
-  background-color: #fff9e6 !important;
+table.tabla-curricular tbody tr:hover,
+table.tabla-general tbody tr:hover,
+.page-content-simple table tbody tr:hover {
+  filter: brightness(0.96);
+  transition: filter 0.15s ease;
+}
+
+.tabla-curricular .total-row,
+table.tabla-general .total-row,
+.page-content-simple table .total-row {
+  background-color: #f7e6a7 !important;
   font-weight: 700;
-  color: #0f172a;
+  color: #0f172a !important;
+  border-top: 2px solid var(--amarillo-dorado);
 }
 
 /* =========================================
