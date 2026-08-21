@@ -688,6 +688,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cohorteId: "filtroCohorteEgresadoMCA",
     tbodySelector: "#tablaEgresadosMCA tbody",
     paginacionId: "paginacionEgresadosMCA",
+    formato: "egresados",
   };
 
   inicializarTablaTesis(DATA_EGRESADOS_MCA, configEgresadosMCA);

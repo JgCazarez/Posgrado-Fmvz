@@ -25,6 +25,8 @@ function inicializarTablaTesis(DATA, config) {
         });
     }
 
+    const formato = config.formato || 'tesis';
+
     function renderTable() {
         tesisTbody.innerHTML = '';
         const start = (currentPage - 1) * rowsPerPage;
@@ -38,12 +40,21 @@ function inicializarTablaTesis(DATA, config) {
 
         paginatedData.forEach(item => {
             const row = document.createElement('tr');
-            row.innerHTML = `
-                <td><strong>${item.alumno}</strong></td>
-                <td>${item.tema}</td>
-                <td>${item.comite}</td>
-                <td><span class="badge-cohorte">${item.cohorte}</span></td>
-            `;
+            if (formato === 'egresados') {
+                row.innerHTML = `
+                    <td class="text-center"><span class="badge-cohorte">${item.cohorte}</span></td>
+                    <td><strong>${item.alumno}</strong></td>
+                    <td>${item.comite}</td>
+                    <td>${item.tema}</td>
+                `;
+            } else {
+                row.innerHTML = `
+                    <td><strong>${item.alumno}</strong></td>
+                    <td>${item.tema}</td>
+                    <td>${item.comite}</td>
+                    <td class="text-center"><span class="badge-cohorte">${item.cohorte}</span></td>
+                `;
+            }
             tesisTbody.appendChild(row);
         });
     }

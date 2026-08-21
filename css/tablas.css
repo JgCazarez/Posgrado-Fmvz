@@ -65,13 +65,28 @@ table.tabla-uas td:nth-child(3) {
   text-align: left;
 }
 
-/* ===== COLUMNA COHORTE ===== */
-table.tabla-uas th:nth-child(4),
-table.tabla-uas td:nth-child(4) {
+/* ===== COLUMNA COHORTE EN TABLA TESIS ===== */
+table.tabla-uas:not(.tabla-egresados) th:nth-child(4),
+table.tabla-uas:not(.tabla-egresados) td:nth-child(4) {
   min-width: 140px;
   width: 140px;
   white-space: nowrap;
   text-align: center;
+}
+
+/* ===== TABLA EGRESADOS (Generación | Alumno | Director de Tesis | Nombre de la Tesis) ===== */
+table.tabla-egresados th:nth-child(1),
+table.tabla-egresados td:nth-child(1) {
+  min-width: 130px;
+  width: 130px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+table.tabla-egresados td:nth-child(2),
+table.tabla-egresados td:nth-child(3),
+table.tabla-egresados td:nth-child(4) {
+  text-align: left;
 }
 
 /* ===== FILAS ALTERNADAS INSTITUCIONALES (DORADO BAJO Y AZUL BAJO) ===== */
@@ -188,10 +203,17 @@ table.tabla-uas tbody tr:hover > * {
     letter-spacing: 0.04em;
   }
 
-  table.tabla-uas td:nth-child(1)::before { content: "Alumno"; }
-  table.tabla-uas td:nth-child(2)::before { content: "Tema"; }
-  table.tabla-uas td:nth-child(3)::before { content: "Comité"; }
-  table.tabla-uas td:nth-child(4)::before { content: "Cohorte"; }
+  /* Etiquetas para Tabla Tesis en Proceso */
+  table.tabla-uas:not(.tabla-egresados) td:nth-child(1)::before { content: "Alumno"; }
+  table.tabla-uas:not(.tabla-egresados) td:nth-child(2)::before { content: "Tema"; }
+  table.tabla-uas:not(.tabla-egresados) td:nth-child(3)::before { content: "Comité"; }
+  table.tabla-uas:not(.tabla-egresados) td:nth-child(4)::before { content: "Cohorte"; }
+
+  /* Etiquetas para Tabla Egresados */
+  table.tabla-egresados td:nth-child(1)::before { content: "Generación"; }
+  table.tabla-egresados td:nth-child(2)::before { content: "Alumno"; }
+  table.tabla-egresados td:nth-child(3)::before { content: "Director"; }
+  table.tabla-egresados td:nth-child(4)::before { content: "Tesis"; }
 
   table.tabla-uas td[colspan] {
     display: block;

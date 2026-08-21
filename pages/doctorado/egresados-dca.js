@@ -352,6 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cohorteId: "filtroCohorteEgresadoDCA",
     tbodySelector: "#tablaEgresadosDCA tbody",
     paginacionId: "paginacionEgresadosDCA",
+    formato: "egresados",
   };
 
   inicializarTablaTesis(DATA_EGRESADOS_DCA, configEgresadosDCA);
