@@ -104,7 +104,7 @@ class SiteHeader extends HTMLElement {
 
             <!-- 5. Vinculación -->
             <li>
-              <a href="${root}pages/investigacion.html#redes">Vinculación</a>
+              <a href="${root}pages/vinculacion.html">Vinculación</a>
             </li>
 
             <!-- 6. Repositorio de Tesis -->

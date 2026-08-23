@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinculación y Convenios - CCA-UAS</title>
+  <link rel="icon" type="image/png" href="../assets/Favicon/logoFmvz-favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/tablas.css">
+  <style>
+    .page-content-simple {
+      background: #ffffff;
+      padding: 40px 45px;
+      margin: 30px auto;
+      border-radius: 4px;
+      max-width: 1200px;
+    }
+    .breadcrumb-uas {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    .breadcrumb-uas a {
+      color: var(--uas-azul);
+      text-decoration: none;
+    }
+    .breadcrumb-uas a:hover {
+      text-decoration: underline;
+    }
+    .page-content-simple h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #000000;
+      margin-bottom: 8px;
+      border-bottom: 1px solid #e0e0e0;
+      padding-bottom: 10px;
+    }
+    .vinculacion-intro {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 25px;
+    }
+    .nav-tabs-uas {
+      border-bottom: 2px solid var(--uas-azul);
+      margin-bottom: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .nav-tabs-uas .tab-btn {
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
+      border-bottom: none;
+      padding: 10px 18px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #495057;
+      border-radius: 6px 6px 0 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .nav-tabs-uas .tab-btn:hover {
+      background: #e9ecef;
+      color: var(--uas-azul);
+    }
+    .nav-tabs-uas .tab-btn.active {
+      background: var(--uas-azul);
+      color: #ffffff;
+      border-color: var(--uas-azul);
+    }
+    .vinculacion-panel {
+      display: none;
+    }
+    .vinculacion-panel.active {
+      display: block;
+    }
+    .info-card-vinculacion {
+      background: #ffffff;
+      border-left: 4px solid var(--uas-azul);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .info-card-vinculacion h3 {
+      font-size: 1.1rem;
+      color: var(--uas-azul);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .info-card-vinculacion p {
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+    @media (max-width: 768px) {
+      .page-content-simple {
+        padding: 20px 16px;
+      }
+      .nav-tabs-uas .tab-btn {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <site-header data-root="../"></site-header>
+
+  <main class="container">
+    <div class="page-content-simple">
+      <!-- Breadcrumb institucional estilo CCA UAS -->
+      <div class="breadcrumb-uas">
+        <a href="../index.html">Inicio</a> › <a href="vinculacion.html">Vinculación</a> › <span id="breadcrumbCurrent">Tabla de Convenios</span>
+      </div>
+
+      <!-- Título principal -->
+      <h1 id="seccionTitulo">Tabla de Convenios</h1>
+      <p class="vinculacion-intro" id="seccionSubtitulo">
+        Convenios con organizaciones del ámbito profesional, instituciones de educación superior e investigación, etc. para el desarrollo del programa.
+      </p>
+
+      <!-- Pestañas de Navegación de Secciones (Estilo CCA UAS) -->
+      <div class="nav-tabs-uas" role="tablist">
+        <button class="tab-btn active" onclick="cambiarSeccion('convenios', this)">Tabla de Convenios</button>
+        <button class="tab-btn" onclick="cambiarSeccion('colaboracion', this)">Actividades de Colaboración</button>
+        <button class="tab-btn" onclick="cambiarSeccion('productos', this)">Productos derivados de la Colaboración</button>
+        <button class="tab-btn" onclick="cambiarSeccion('transferencia', this)">Mecanismos de Transferencia y Aplicación</button>
+      </div>
+
+      <!-- PANEL 1: TABLA DE CONVENIOS -->
+      <div id="panel-convenios" class="vinculacion-panel active">
+        <div class="card card-filtros p-3 mb-4">
+          <div class="row g-3 align-items-end">
+            <div class="col-12">
+              <label for="busquedaConvenio" class="form-label fw-semibold">Buscar por Empresa, Institución o Responsable</label>
+              <input type="text" id="busquedaConvenio" class="form-control" placeholder="Ej. Sukarne, New Mexico, INIFAP, CIAD, Ganadera, nombre...">
+            </div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <div class="table-responsive">
+            <table id="tablaConvenios" class="table tabla-uas tabla-convenios">
+              <thead>
+                <tr>
+                  <th class="text-center" style="width: 7%;">N°</th>
+                  <th class="text-center" style="width: 43%;">Nombre de la Empresa o Institución</th>
+                  <th class="text-center" style="width: 30%;">Nombre de Responsable</th>
+                  <th class="text-center" style="width: 10%;">Fecha de Convenio</th>
+                  <th class="text-center" style="width: 10%;">Convenio</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="paginacion-wrap">
+            <nav aria-label="Paginación Convenios">
+              <ul id="paginacionConvenios" class="pagination justify-content-center mb-0"></ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- PANEL 2: ACTIVIDADES DE COLABORACIÓN -->
+      <div id="panel-colaboracion" class="vinculacion-panel">
+        <div class="info-card-vinculacion">
+          <h3>Movilidad e Intercambio Académico y Científico</h3>
+          <p>
+            Convenios marco y específicos con universidades de reconocido prestigio nacional e internacional (New Mexico State University, Universidad de Antioquia, Universidad de Camagüey, UAM, UABC, UNISON, entre otras) para la estancia de estudiantes de maestría y doctorado, estancias posdoctorales y codirección de tesis en comités tutoriales.
+          </p>
+        </div>
+        <div class="info-card-vinculacion">
+          <h3>Investigación y Proyectos Conjuntos en el Sector Agropecuario</h3>
+          <p>
+            Alianzas con centros de investigación de excelencia como el CIMMYT, INIFAP, CIATEJ y CIAD para el desarrollo de proyectos orientados a la biotecnología agrícola, sanidad e inocuidad alimentaria, nutrición animal y mejoramiento genético.
+          </p>
+        </div>
+        <div class="info-card-vinculacion">
+          <h3>Estancias Profesionales e Inserción Productiva</h3>
+          <p>
+            Colaboración estrecha con empresas líderes del sector agroalimentario (SuKarne, Agrícola Kondo, CAADES, Unión Ganadera Regional de Sinaloa) para la validación y aplicación de investigaciones científicas en condiciones reales de producción.
+          </p>
+        </div>
+      </div>
+
+      <!-- PANEL 3: PRODUCTOS DERIVADOS DE LA COLABORACIÓN -->
+      <div id="panel-productos" class="vinculacion-panel">
+        <div class="info-card-vinculacion">
+          <h3>Artículos Científicos de Alto Impacto (JCR y Conacyt)</h3>
+          <p>
+            Publicaciones conjuntas entre profesores del Núcleo Académico Básico, estudiantes de posgrado y colaboradores internacionales en revistas indexadas de prestigio global.
+          </p>
+        </div>
+        <div class="info-card-vinculacion">
+          <h3>Tesis en Cotutela y Patentes en Trámite</h3>
+          <p>
+            Desarrollo de innovaciones tecnológicas, formulación de biocontroladores para cultivos agrícolas y protocolos de sanidad pecuaria con impacto directo en el sector productivo de Sinaloa y el noroeste del país.
+          </p>
+        </div>
+        <div class="info-card-vinculacion">
+          <h3>Participación en Congresos Nacionales e Internacionales</h3>
+          <p>
+            Presentación de más de 260 trabajos, ponencias y carteles científicos derivados de convenios interinstitucionales en foros especializados en México, España, Reino Unido y Latinoamérica.
+          </p>
+        </div>
+      </div>
+
+      <!-- PANEL 4: MECANISMOS DE TRANSFERENCIA Y APLICACIÓN -->
+      <div id="panel-transferencia" class="vinculacion-panel">
+        <div class="info-card-vinculacion">
+          <h3>Transferencia de Tecnología Biorracional</h3>
+          <p>
+            Capacitación y asesoría técnica a agricultores y productores pecuarios sobre control biológico de plagas, biofertilización con micorrizas, manejo sanitario de hatos y reducción de patógenos bacterianos.
+          </p>
+        </div>
+        <div class="info-card-vinculacion">
+          <h3>Diagnóstico de Laboratorio y Certificación Sanitaria</h3>
+          <p>
+            Servicios especializados de detección molecular de patógenos pecuarios y fitopatógenos para asociaciones ganaderas y agrícolas del estado de Sinaloa en coordinación con comités de sanidad vegetal y animal.
+          </p>
+        </div>
+        <div class="info-card-vinculacion">
+          <h3>Convenios de Colaboración Abiertos</h3>
+          <p>
+            Mecanismo ágil para la formalización de nuevos convenios específicos con empresas, asociaciones y dependencias gubernamentales interesadas en investigación, desarrollo tecnológico y consultoría.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <site-footer data-root="../"></site-footer>
+
+  <!-- Scripts -->
+  <script src="../js/site-header.js"></script>
+  <script src="../js/site-footer.js"></script>
+  <script src="../js/menu.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="vinculacion.js"></script>
+  <script>
+    function cambiarSeccion(seccion, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.vinculacion-panel').forEach(p => p.classList.remove('active'));
+      
+      btn.classList.add('active');
+      const target = document.getElementById('panel-' + seccion);
+      if (target) target.classList.add('active');
+
+      const titulos = {
+        'convenios': {
+          h1: 'Tabla de Convenios',
+          p: 'Convenios con organizaciones del ámbito profesional, instituciones de educación superior e investigación, etc. para el desarrollo del programa.'
+        },
+        'colaboracion': {
+          h1: 'Actividades de Colaboración',
+          p: 'Alianzas estratégicas, redes de investigación y movilidad nacional e internacional para estudiantes y docentes.'
+        },
+        'productos': {
+          h1: 'Productos derivados de la Colaboración',
+          p: 'Resultados tangibles, publicaciones científicas conjuntas, patentes y desarrollos tecnológicos con impacto sectorial.'
+        },
+        'transferencia': {
+          h1: 'Mecanismos de Transferencia y Aplicación',
+          p: 'Estrategias de adopción de tecnología, asesoría técnica y diagnóstico aplicados al sector agroalimentario.'
+        }
+      };
+
+      if (titulos[seccion]) {
+        document.getElementById('seccionTitulo').innerText = titulos[seccion].h1;
+        document.getElementById('seccionSubtitulo').innerText = titulos[seccion].p;
+        document.getElementById('breadcrumbCurrent').innerText = titulos[seccion].h1;
+      }
+    }
+  </script>
+</body>
+</html>

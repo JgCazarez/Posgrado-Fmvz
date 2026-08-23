@@ -179,6 +179,42 @@ table.tabla-uas td {
     text-align: center;
   }
 
+  /* ===== TABLA CONVENIOS (N° | Empresa | Responsable | Fecha | Vigencia) ===== */
+  table.tabla-convenios th:nth-child(1),
+  table.tabla-convenios td:nth-child(1) {
+    min-width: 60px;
+    width: 60px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  table.tabla-convenios th:nth-child(2),
+  table.tabla-convenios td:nth-child(2) {
+    min-width: 300px;
+    text-align: left;
+  }
+
+  table.tabla-convenios th:nth-child(3),
+  table.tabla-convenios td:nth-child(3) {
+    min-width: 220px;
+    text-align: left;
+  }
+
+  table.tabla-convenios th:nth-child(4),
+  table.tabla-convenios td:nth-child(4) {
+    min-width: 120px;
+    width: 120px;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  table.tabla-convenios th:nth-child(5),
+  table.tabla-convenios td:nth-child(5) {
+    min-width: 120px;
+    width: 120px;
+    text-align: center;
+  }
+
   /* ===== FILAS ALTERNADAS INSTITUCIONALES EN ESCRITORIO ===== */
   table.tabla-uas tbody tr:nth-child(odd) > * {
     background-color: #FCF4DA !important;
@@ -352,6 +388,18 @@ table.tabla-uas td {
   table.tabla-seguimiento-mca td:nth-child(4)::before { content: "Congreso"; }
   table.tabla-seguimiento-mca td:nth-child(5)::before { content: "Participación"; }
   table.tabla-seguimiento-mca td:nth-child(6)::before { content: "País"; }
+
+  /* Etiquetas para Tabla Convenios */
+  table.tabla-convenios td:nth-child(2) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 3px !important;
+  }
+  table.tabla-convenios td:nth-child(1)::before { content: "N°"; }
+  table.tabla-convenios td:nth-child(2)::before { content: "Empresa / Inst."; }
+  table.tabla-convenios td:nth-child(3)::before { content: "Responsable"; }
+  table.tabla-convenios td:nth-child(4)::before { content: "Fecha"; }
+  table.tabla-convenios td:nth-child(5)::before { content: "Convenio"; }
 
   table.tabla-uas td[colspan] {
     display: block !important;
