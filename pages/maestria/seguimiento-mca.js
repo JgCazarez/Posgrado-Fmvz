@@ -2187,78 +2187,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setupPagination() {
     paginationUl.innerHTML = '';
-    const pageCount = Math.ceil(filteredData.length / rowsPerPage);
-    if (pageCount <= 1) return;
+    const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+    if (totalPages <= 1) return;
 
-    // Anterior
-    const prevLi = document.createElement('li');
-    prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
-    const prevA = document.createElement('a');
-    prevA.className = 'page-link';
-    prevA.href = '#';
-    prevA.innerHTML = '&laquo;';
-    prevA.setAttribute('aria-label', 'Anterior');
-    prevA.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (currentPage > 1) {
-        currentPage--;
-        renderTable();
-        setupPagination();
-      }
-    });
-    prevLi.appendChild(prevA);
-    paginationUl.appendChild(prevLi);
-
-    for (let i = 1; i <= pageCount; i++) {
+    const addBtn = (text, targetPage, active = false, disabled = false) => {
       const li = document.createElement('li');
-      li.className = 'page-item' + (i === currentPage ? ' active' : '');
-      const a = document.createElement('a');
-      a.className = 'page-link';
-      a.href = '#';
-      a.innerText = i;
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        currentPage = i;
-        renderTable();
-        setupPagination();
-      });
-      li.appendChild(a);
+      li.className = `page-item ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`;
+      li.innerHTML = `<a class="page-link" href="#">${text}</a>`;
+      if (!disabled && !active) {
+        li.onclick = (e) => {
+          e.preventDefault();
+          currentPage = targetPage;
+          renderTable();
+          setupPagination();
+        };
+      }
       paginationUl.appendChild(li);
+    };
+
+    addBtn('&laquo;', currentPage - 1, false, currentPage === 1);
+
+    const delta = 2;
+    const start = Math.max(1, currentPage - delta);
+    const end = Math.min(totalPages, currentPage + delta);
+
+    if (start > 1) {
+      addBtn(1, 1);
+      if (start > 2) addBtn('...', null, false, true);
     }
 
-    // Siguiente
-    const nextLi = document.createElement('li');
-    nextLi.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
-    const nextA = document.createElement('a');
-    nextA.className = 'page-link';
-    nextA.href = '#';
-    nextA.innerHTML = '&raquo;';
-    nextA.setAttribute('aria-label', 'Siguiente');
-    nextA.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (currentPage < pageCount) {
-        currentPage++;
-        renderTable();
-        setupPagination();
-      }
-    });
-    nextLi.appendChild(nextA);
-    paginationUl.appendChild(nextLi);
+    for (let i = start; i <= end; i++) {
+      addBtn(i, i, i === currentPage);
+    }
+
+    if (end < totalPages) {
+      if (end < totalPages - 1) addBtn('...', null, false, true);
+      addBtn(totalPages, totalPages);
+    }
+
+    addBtn('&raquo;', currentPage + 1, false, currentPage === totalPages);
   }
 
   function applyFiltersAndRender() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    const selectedAnio = anioFilter.value;
+    const q = searchInput.value.toLowerCase().trim();
+    const a = anioFilter.value;
 
-    filteredData = DATA_SEGUIMIENTO_MCA.filter(item => {
-      const autorMatches = (item.autor || '').toLowerCase().includes(searchTerm);
-      const tituloMatches = (item.titulo || '').toLowerCase().includes(searchTerm);
-      const congresoMatches = (item.congreso || '').toLowerCase().includes(searchTerm);
-      const matchesSearch = !searchTerm || autorMatches || tituloMatches || congresoMatches;
-
-      const matchesAnio = selectedAnio === 'todos' || item.anio === selectedAnio;
-      return matchesSearch && matchesAnio;
-    });
+    filteredData = DATA_SEGUIMIENTO_MCA.filter(d => 
+      (!a || a === 'todos' || d.anio === a) &&
+      (!q || Object.values(d).some(v => String(v).toLowerCase().includes(q)))
+    );
 
     currentPage = 1;
     renderTable();

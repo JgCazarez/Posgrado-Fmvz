@@ -683,13 +683,96 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 ];
 
-  const configEgresadosMCA = {
-    busquedaId: "busquedaEgresadoMCA",
-    cohorteId: "filtroCohorteEgresadoMCA",
-    tbodySelector: "#tablaEgresadosMCA tbody",
-    paginacionId: "paginacionEgresadosMCA",
-    formato: "egresados",
-  };
+  const searchInput = document.getElementById("busquedaEgresadoMCA");
+  const cohorteFilter = document.getElementById("filtroCohorteEgresadoMCA");
+  const tbody = document.querySelector("#tablaEgresadosMCA tbody");
+  const paginationUl = document.getElementById("paginacionEgresadosMCA");
 
-  inicializarTablaTesis(DATA_EGRESADOS_MCA, configEgresadosMCA);
+  const limit = 10;
+  let currentPage = 1;
+  let filteredData = [...DATA_EGRESADOS_MCA];
+
+  // Poblar selector de generación
+  [...new Set(DATA_EGRESADOS_MCA.map(d => d.cohorte))].sort().reverse().forEach(c => {
+    cohorteFilter.add(new Option(c, c));
+  });
+
+  function renderTable() {
+    tbody.innerHTML = '';
+    const slice = filteredData.slice((currentPage - 1) * limit, currentPage * limit);
+    if (!slice.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-muted">No se encontraron resultados para los filtros seleccionados.</td></tr>';
+      return;
+    }
+    slice.forEach(d => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="text-center">${d.cohorte}</td>
+        <td><strong>${d.alumno}</strong></td>
+        <td>${d.comite}</td>
+        <td>${d.tema}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderPagination() {
+    paginationUl.innerHTML = '';
+    const totalPages = Math.ceil(filteredData.length / limit);
+    if (totalPages <= 1) return;
+
+    const addBtn = (text, targetPage, active = false, disabled = false) => {
+      const li = document.createElement('li');
+      li.className = `page-item ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`;
+      li.innerHTML = `<a class="page-link" href="#">${text}</a>`;
+      if (!disabled && !active) {
+        li.onclick = (e) => {
+          e.preventDefault();
+          currentPage = targetPage;
+          renderTable();
+          renderPagination();
+        };
+      }
+      paginationUl.appendChild(li);
+    };
+
+    addBtn('&laquo;', currentPage - 1, false, currentPage === 1);
+
+    const delta = 2;
+    const start = Math.max(1, currentPage - delta);
+    const end = Math.min(totalPages, currentPage + delta);
+
+    if (start > 1) {
+      addBtn(1, 1);
+      if (start > 2) addBtn('...', null, false, true);
+    }
+
+    for (let i = start; i <= end; i++) {
+      addBtn(i, i, i === currentPage);
+    }
+
+    if (end < totalPages) {
+      if (end < totalPages - 1) addBtn('...', null, false, true);
+      addBtn(totalPages, totalPages);
+    }
+
+    addBtn('&raquo;', currentPage + 1, false, currentPage === totalPages);
+  }
+
+  function applyFilter() {
+    const q = searchInput.value.toLowerCase().trim();
+    const c = cohorteFilter.value;
+    filteredData = DATA_EGRESADOS_MCA.filter(d => 
+      (!c || c === 'todos' || d.cohorte === c) &&
+      (!q || Object.values(d).some(v => String(v).toLowerCase().includes(q)))
+    );
+    currentPage = 1;
+    renderTable();
+    renderPagination();
+  }
+
+  searchInput.addEventListener('input', applyFilter);
+  cohorteFilter.addEventListener('change', applyFilter);
+
+  applyFilter();
 });
