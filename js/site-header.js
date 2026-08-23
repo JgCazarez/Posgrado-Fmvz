@@ -130,8 +130,8 @@ class SiteHeader extends HTMLElement {
               <a href="#">Estudiantes</a>
               <ul class="dropdown-content">
                 <li><a href="${root}index.html#convocatorias">Convocatorias</a></li>
-                <li><a href="${root}pages/maestria/tesis-en-proceso.html">MCA: Estudiantes Matriculados</a></li>
-                <li><a href="${root}pages/doctorado/tesis-en-proceso.html">DCA: Estudiantes Matriculados</a></li>
+                <li><a href="${root}pages/maestria/estudiantes-matriculados.html">MCA: Estudiantes Matriculados</a></li>
+                <li><a href="${root}pages/doctorado/estudiantes-matriculados.html">DCA: Estudiantes Matriculados</a></li>
                 <li><a href="${root}pages/nosotros/normatividad.html">MCA: Procesos Administrativos</a></li>
                 <li><a href="${root}pages/nosotros/normatividad.html">DCA: Procesos Administrativos</a></li>
                 <li><a href="${root}pages/nosotros/normatividad.html">Formatos</a></li>
