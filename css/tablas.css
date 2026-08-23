@@ -209,10 +209,18 @@ table.tabla-uas td {
   color: #fff;
 }
 
+.pagination .page-item.disabled .page-link {
+  color: #8c98a4;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: default;
+}
+
 .page-link {
   color: var(--uas-azul);
   border-radius: 6px;
-  margin: 0 3px;
+  margin: 0 2px;
+  padding: 6px 12px;
   font-weight: 600;
   transition: all 0.2s ease;
 }

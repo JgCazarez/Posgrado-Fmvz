@@ -721,18 +721,42 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalPages = Math.ceil(filteredData.length / limit);
     if (totalPages <= 1) return;
 
-    for (let i = 1; i <= totalPages; i++) {
+    const addBtn = (text, targetPage, active = false, disabled = false) => {
       const li = document.createElement('li');
-      li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-      li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-      li.onclick = (e) => {
-        e.preventDefault();
-        currentPage = i;
-        renderTable();
-        renderPagination();
-      };
+      li.className = `page-item ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`;
+      li.innerHTML = `<a class="page-link" href="#">${text}</a>`;
+      if (!disabled && !active) {
+        li.onclick = (e) => {
+          e.preventDefault();
+          currentPage = targetPage;
+          renderTable();
+          renderPagination();
+        };
+      }
       paginationUl.appendChild(li);
+    };
+
+    addBtn('&laquo;', currentPage - 1, false, currentPage === 1);
+
+    const delta = 2;
+    const start = Math.max(1, currentPage - delta);
+    const end = Math.min(totalPages, currentPage + delta);
+
+    if (start > 1) {
+      addBtn(1, 1);
+      if (start > 2) addBtn('...', null, false, true);
     }
+
+    for (let i = start; i <= end; i++) {
+      addBtn(i, i, i === currentPage);
+    }
+
+    if (end < totalPages) {
+      if (end < totalPages - 1) addBtn('...', null, false, true);
+      addBtn(totalPages, totalPages);
+    }
+
+    addBtn('&raquo;', currentPage + 1, false, currentPage === totalPages);
   }
 
   function applyFilter() {
