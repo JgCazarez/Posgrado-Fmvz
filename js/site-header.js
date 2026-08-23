@@ -120,8 +120,8 @@ class SiteHeader extends HTMLElement {
             <li class="dropdown">
               <a href="#">Seguimiento de Egresados</a>
               <ul class="dropdown-content">
-                <li><a href="${root}pages/doctorado/egresados.html">DCA: Seguimiento de Egresados</a></li>
-                <li><a href="${root}pages/maestria/egresados.html">MCA: Seguimiento de Egresados</a></li>
+                <li><a href="${root}pages/doctorado/seguimiento-egresados.html">DCA: Seguimiento de Egresados</a></li>
+                <li><a href="${root}pages/maestria/seguimiento-egresados.html">MCA: Seguimiento de Egresados</a></li>
               </ul>
             </li>
 
