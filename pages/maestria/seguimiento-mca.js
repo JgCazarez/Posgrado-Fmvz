@@ -2247,18 +2247,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function applyFiltersAndRender() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    const selectedAnio = anioFilter.value;
+    const q = searchInput.value.toLowerCase().trim();
+    const a = anioFilter.value;
 
-    filteredData = DATA_SEGUIMIENTO_MCA.filter(item => {
-      const autorMatches = (item.autor || '').toLowerCase().includes(searchTerm);
-      const tituloMatches = (item.titulo || '').toLowerCase().includes(searchTerm);
-      const congresoMatches = (item.congreso || '').toLowerCase().includes(searchTerm);
-      const matchesSearch = !searchTerm || autorMatches || tituloMatches || congresoMatches;
-
-      const matchesAnio = selectedAnio === 'todos' || item.anio === selectedAnio;
-      return matchesSearch && matchesAnio;
-    });
+    filteredData = DATA_SEGUIMIENTO_MCA.filter(d => 
+      (!a || a === 'todos' || d.anio === a) &&
+      (!q || Object.values(d).some(v => String(v).toLowerCase().includes(q)))
+    );
 
     currentPage = 1;
     renderTable();

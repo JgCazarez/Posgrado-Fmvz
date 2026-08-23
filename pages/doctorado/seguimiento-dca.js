@@ -761,19 +761,13 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function applyFiltersAndRender() {
-    const searchTerm = searchInput.value.toLowerCase().trim();
-    const selectedCohorte = cohorteFilter.value;
+    const q = searchInput.value.toLowerCase().trim();
+    const c = cohorteFilter.value;
 
-    filteredData = DATA_SEGUIMIENTO_DCA.filter(item => {
-      const alumnoMatches = (item.alumno || '').toLowerCase().includes(searchTerm);
-      const directorMatches = (item.director || '').toLowerCase().includes(searchTerm);
-      const ocupacionMatches = (item.ocupacion || '').toLowerCase().includes(searchTerm);
-      const emailMatches = (item.email || '').toLowerCase().includes(searchTerm);
-      const matchesSearch = !searchTerm || alumnoMatches || directorMatches || ocupacionMatches || emailMatches;
-
-      const matchesCohorte = selectedCohorte === 'todos' || item.cohorte === selectedCohorte;
-      return matchesSearch && matchesCohorte;
-    });
+    filteredData = DATA_SEGUIMIENTO_DCA.filter(d => 
+      (!c || c === 'todos' || d.cohorte === c) &&
+      (!q || Object.values(d).some(v => String(v).toLowerCase().includes(q)))
+    );
 
     currentPage = 1;
     renderTable();
