@@ -62,6 +62,7 @@ table.tabla-uas td {
 
 /* ===== ESTILOS ESPECÍFICOS DE COLUMNAS EN ESCRITORIO (>= 768px) ===== */
 @media (min-width: 768px) {
+
   /* ===== TABLA TESIS EN PROCESO (Alumno | Tema | Comité | Cohorte) ===== */
   table.tabla-tesis th:nth-child(1),
   table.tabla-tesis td:nth-child(1) {
@@ -216,17 +217,17 @@ table.tabla-uas td {
   }
 
   /* ===== FILAS ALTERNADAS INSTITUCIONALES EN ESCRITORIO ===== */
-  table.tabla-uas tbody tr:nth-child(odd) > * {
+  table.tabla-uas tbody tr:nth-child(odd)>* {
     background-color: #FCF4DA !important;
     color: var(--texto) !important;
   }
 
-  table.tabla-uas tbody tr:nth-child(even) > * {
+  table.tabla-uas tbody tr:nth-child(even)>* {
     background-color: #E1E6F1 !important;
     color: var(--texto) !important;
   }
 
-  table.tabla-uas tbody tr:hover > * {
+  table.tabla-uas tbody tr:hover>* {
     filter: brightness(0.96);
     transition: filter 0.15s ease;
   }
@@ -308,8 +309,8 @@ table.tabla-uas td {
     background-color: #fff !important;
   }
 
-  table.tabla-uas tbody tr:nth-child(odd) > td,
-  table.tabla-uas tbody tr:nth-child(even) > td {
+  table.tabla-uas tbody tr:nth-child(odd)>td,
+  table.tabla-uas tbody tr:nth-child(even)>td {
     --bs-table-accent-bg: transparent;
     background-color: transparent !important;
     box-shadow: none !important;
@@ -363,31 +364,84 @@ table.tabla-uas td {
   }
 
   /* Etiquetas para Tabla Tesis en Proceso */
-  table.tabla-tesis td:nth-child(1)::before { content: "Alumno"; }
-  table.tabla-tesis td:nth-child(2)::before { content: "Tema"; }
-  table.tabla-tesis td:nth-child(3)::before { content: "Comité"; }
-  table.tabla-tesis td:nth-child(4)::before { content: "Cohorte"; }
+  table.tabla-tesis td:nth-child(1)::before {
+    content: "Alumno";
+  }
+
+  table.tabla-tesis td:nth-child(2)::before {
+    content: "Tema";
+  }
+
+  table.tabla-tesis td:nth-child(3)::before {
+    content: "Comité";
+  }
+
+  table.tabla-tesis td:nth-child(4)::before {
+    content: "Cohorte";
+  }
 
   /* Etiquetas para Tabla Egresados */
-  table.tabla-egresados td:nth-child(1)::before { content: "Generación"; }
-  table.tabla-egresados td:nth-child(2)::before { content: "Alumno"; }
-  table.tabla-egresados td:nth-child(3)::before { content: "Director"; }
-  table.tabla-egresados td:nth-child(4)::before { content: "Tesis"; }
+  table.tabla-egresados td:nth-child(1)::before {
+    content: "Generación";
+  }
+
+  table.tabla-egresados td:nth-child(2)::before {
+    content: "Alumno";
+  }
+
+  table.tabla-egresados td:nth-child(3)::before {
+    content: "Director";
+  }
+
+  table.tabla-egresados td:nth-child(4)::before {
+    content: "Tesis";
+  }
 
   /* Etiquetas para Tabla Seguimiento DCA */
-  table.tabla-seguimiento-dca td:nth-child(1)::before { content: "Generación"; }
-  table.tabla-seguimiento-dca td:nth-child(2)::before { content: "Doctor"; }
-  table.tabla-seguimiento-dca td:nth-child(3)::before { content: "Director"; }
-  table.tabla-seguimiento-dca td:nth-child(4)::before { content: "Correo"; }
-  table.tabla-seguimiento-dca td:nth-child(5)::before { content: "Ocupación"; }
+  table.tabla-seguimiento-dca td:nth-child(1)::before {
+    content: "Generación";
+  }
+
+  table.tabla-seguimiento-dca td:nth-child(2)::before {
+    content: "Doctor";
+  }
+
+  table.tabla-seguimiento-dca td:nth-child(3)::before {
+    content: "Director";
+  }
+
+  table.tabla-seguimiento-dca td:nth-child(4)::before {
+    content: "Correo";
+  }
+
+  table.tabla-seguimiento-dca td:nth-child(5)::before {
+    content: "Ocupación";
+  }
 
   /* Etiquetas para Tabla Seguimiento MCA (Congresos) */
-  table.tabla-seguimiento-mca td:nth-child(1)::before { content: "Año"; }
-  table.tabla-seguimiento-mca td:nth-child(2)::before { content: "Autor(a)"; }
-  table.tabla-seguimiento-mca td:nth-child(3)::before { content: "Título"; }
-  table.tabla-seguimiento-mca td:nth-child(4)::before { content: "Congreso"; }
-  table.tabla-seguimiento-mca td:nth-child(5)::before { content: "Participación"; }
-  table.tabla-seguimiento-mca td:nth-child(6)::before { content: "País"; }
+  table.tabla-seguimiento-mca td:nth-child(1)::before {
+    content: "Año";
+  }
+
+  table.tabla-seguimiento-mca td:nth-child(2)::before {
+    content: "Autor(a)";
+  }
+
+  table.tabla-seguimiento-mca td:nth-child(3)::before {
+    content: "Título";
+  }
+
+  table.tabla-seguimiento-mca td:nth-child(4)::before {
+    content: "Congreso";
+  }
+
+  table.tabla-seguimiento-mca td:nth-child(5)::before {
+    content: "Participación";
+  }
+
+  table.tabla-seguimiento-mca td:nth-child(6)::before {
+    content: "País";
+  }
 
   /* Etiquetas para Tabla Convenios */
   table.tabla-convenios td:nth-child(2) {
@@ -395,11 +449,26 @@ table.tabla-uas td {
     align-items: flex-start !important;
     gap: 3px !important;
   }
-  table.tabla-convenios td:nth-child(1)::before { content: "N°"; }
-  table.tabla-convenios td:nth-child(2)::before { content: "Empresa / Inst."; }
-  table.tabla-convenios td:nth-child(3)::before { content: "Responsable"; }
-  table.tabla-convenios td:nth-child(4)::before { content: "Fecha"; }
-  table.tabla-convenios td:nth-child(5)::before { content: "Convenio"; }
+
+  table.tabla-convenios td:nth-child(1)::before {
+    content: "N°";
+  }
+
+  table.tabla-convenios td:nth-child(2)::before {
+    content: "Empresa / Inst.";
+  }
+
+  table.tabla-convenios td:nth-child(3)::before {
+    content: "Responsable";
+  }
+
+  table.tabla-convenios td:nth-child(4)::before {
+    content: "Fecha";
+  }
+
+  table.tabla-convenios td:nth-child(5)::before {
+    content: "Convenio";
+  }
 
   table.tabla-uas td[colspan] {
     display: block !important;

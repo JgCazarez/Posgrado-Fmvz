@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,11 @@
   <link rel="icon" type="image/png" href="../assets/Favicon/logoFmvz-favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <link rel="stylesheet" href="../css/tablas.css">
@@ -20,18 +24,22 @@
       border-radius: 4px;
       max-width: 1200px;
     }
+
     .breadcrumb-uas {
       font-size: 0.85rem;
       color: #666;
       margin-bottom: 15px;
     }
+
     .breadcrumb-uas a {
       color: var(--uas-azul);
       text-decoration: none;
     }
+
     .breadcrumb-uas a:hover {
       text-decoration: underline;
     }
+
     .page-content-simple h1 {
       font-size: 1.75rem;
       font-weight: 800;
@@ -40,11 +48,13 @@
       border-bottom: 1px solid #e0e0e0;
       padding-bottom: 10px;
     }
+
     .vinculacion-intro {
       font-size: 0.95rem;
       color: #555;
       margin-bottom: 25px;
     }
+
     .nav-tabs-uas {
       border-bottom: 2px solid var(--uas-azul);
       margin-bottom: 25px;
@@ -52,6 +62,7 @@
       flex-wrap: wrap;
       gap: 5px;
     }
+
     .nav-tabs-uas .tab-btn {
       background: #f8f9fa;
       border: 1px solid #dee2e6;
@@ -65,53 +76,320 @@
       transition: all 0.2s ease;
       text-decoration: none;
     }
+
     .nav-tabs-uas .tab-btn:hover {
       background: #e9ecef;
       color: var(--uas-azul);
     }
+
     .nav-tabs-uas .tab-btn.active {
       background: var(--uas-azul);
       color: #ffffff;
       border-color: var(--uas-azul);
     }
+
     .vinculacion-panel {
       display: none;
     }
+
     .vinculacion-panel.active {
       display: block;
     }
+
+    /* ===== SECCIÓN 2: ACORDEÓN DESPLEGABLE (ACTIVIDADES DE COLABORACIÓN) ===== */
+    .acordeon-uas {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .acordeon-item {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .acordeon-item.abierto {
+      border-color: var(--uas-azul);
+      box-shadow: 0 4px 14px rgba(11, 94, 175, 0.08);
+    }
+
+    .acordeon-header {
+      padding: 18px 22px;
+      background: #f8fafc;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      font-weight: 700;
+      color: var(--uas-azul);
+      font-size: 1.05rem;
+      transition: background 0.2s ease;
+    }
+
+    .acordeon-header:hover {
+      background: #f1f5f9;
+    }
+
+    .acordeon-item.abierto .acordeon-header {
+      background: #edf5ff;
+      border-bottom: 1px solid #d0e4ff;
+    }
+
+    .acordeon-header .header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .acordeon-tag {
+      background: var(--uas-azul);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .acordeon-arrow {
+      transition: transform 0.3s ease;
+      font-size: 0.9rem;
+      color: var(--uas-azul);
+    }
+
+    .acordeon-item.abierto .acordeon-arrow {
+      transform: rotate(180deg);
+    }
+
+    .acordeon-body {
+      display: none;
+      padding: 22px 24px;
+      color: #444;
+      font-size: 0.93rem;
+      line-height: 1.65;
+      background: #ffffff;
+    }
+
+    .acordeon-item.abierto .acordeon-body {
+      display: block;
+    }
+
+    .acordeon-list {
+      margin-top: 12px;
+      padding-left: 20px;
+      color: #555;
+    }
+
+    .acordeon-list li {
+      margin-bottom: 8px;
+    }
+
+    /* ===== SECCIÓN 3: TARJETAS CON MODAL / DRAWER LATERAL (PRODUCTOS DERIVADOS) ===== */
+    .grid-productos-vinculacion {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    .card-producto-vinculacion {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card-producto-vinculacion:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-color: var(--uas-dorado);
+    }
+
+    .card-producto-vinculacion h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--uas-azul);
+      margin-bottom: 12px;
+    }
+
+    .card-producto-vinculacion p {
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .btn-drawer-producto {
+      align-self: flex-start;
+      background: #ffffff;
+      color: var(--uas-azul);
+      border: 1px solid var(--uas-azul);
+      padding: 8px 16px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-drawer-producto:hover {
+      background: var(--uas-azul);
+      color: #ffffff;
+    }
+
+    /* ===== DRAWER / MODAL LATERAL INSTITUCIONAL ===== */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(2px);
+      z-index: 1050;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer-lateral {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 480px;
+      max-width: 92%;
+      height: 100%;
+      background: #ffffff;
+      box-shadow: -4px 0 25px rgba(0, 0, 0, 0.15);
+      z-index: 1055;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drawer-lateral.active {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      background: var(--uas-azul);
+      color: #ffffff;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-header h2 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .drawer-close {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0;
+      opacity: 0.85;
+      transition: opacity 0.2s ease;
+    }
+
+    .drawer-close:hover {
+      opacity: 1;
+    }
+
+    .drawer-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .drawer-item {
+      margin-bottom: 20px;
+    }
+
+    .drawer-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--uas-azul);
+      margin-bottom: 5px;
+    }
+
+    .drawer-value {
+      font-size: 0.95rem;
+      color: #222;
+      line-height: 1.55;
+    }
+
     .info-card-vinculacion {
       background: #ffffff;
       border-left: 4px solid var(--uas-azul);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
       border-radius: 4px;
       padding: 20px;
       margin-bottom: 20px;
     }
+
     .info-card-vinculacion h3 {
       font-size: 1.1rem;
       color: var(--uas-azul);
       font-weight: 700;
       margin-bottom: 10px;
     }
+
     .info-card-vinculacion p {
       font-size: 0.92rem;
       color: #444;
       line-height: 1.6;
       margin-bottom: 0;
     }
+
     @media (max-width: 768px) {
       .page-content-simple {
         padding: 20px 16px;
       }
+
       .nav-tabs-uas .tab-btn {
         width: 100%;
         border-radius: 4px;
         margin-bottom: 4px;
       }
+
+      .drawer-lateral {
+        width: 100%;
+        max-width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
   <site-header data-root="../"></site-header>
 
@@ -119,16 +397,18 @@
     <div class="page-content-simple">
       <!-- Breadcrumb institucional estilo CCA UAS -->
       <div class="breadcrumb-uas">
-        <a href="../index.html">Inicio</a> › <a href="vinculacion.html">Vinculación</a> › <span id="breadcrumbCurrent">Tabla de Convenios</span>
+        <a href="../index.html">Inicio</a> › <a href="vinculacion.html">Vinculación</a> › <span
+          id="breadcrumbCurrent">Tabla de Convenios</span>
       </div>
 
       <!-- Título principal -->
       <h1 id="seccionTitulo">Tabla de Convenios</h1>
       <p class="vinculacion-intro" id="seccionSubtitulo">
-        Convenios con organizaciones del ámbito profesional, instituciones de educación superior e investigación, etc. para el desarrollo del programa.
+        Convenios con organizaciones del ámbito profesional, instituciones de educación superior e investigación, etc.
+        para el desarrollo del programa.
       </p>
 
-      <!-- Pestañas de Navegación de Secciones (Estilo CCA UAS) -->
+      <!-- Pestañas de Navegación de Secciones (Estilo Limpio y Compacto) -->
       <div class="nav-tabs-uas" role="tablist">
         <button class="tab-btn active" onclick="cambiarSeccion('convenios', this)">Tabla de Convenios</button>
         <button class="tab-btn" onclick="cambiarSeccion('colaboracion', this)">Actividades de Colaboración</button>
@@ -136,13 +416,15 @@
         <button class="tab-btn" onclick="cambiarSeccion('transferencia', this)">Mecanismos de Transferencia y Aplicación</button>
       </div>
 
-      <!-- PANEL 1: TABLA DE CONVENIOS -->
+      <!-- PANEL 1: TABLA DE CONVENIOS (5 COLUMNAS OFICIALES) -->
       <div id="panel-convenios" class="vinculacion-panel active">
         <div class="card card-filtros p-3 mb-4">
           <div class="row g-3 align-items-end">
             <div class="col-12">
-              <label for="busquedaConvenio" class="form-label fw-semibold">Buscar por Empresa, Institución o Responsable</label>
-              <input type="text" id="busquedaConvenio" class="form-control" placeholder="Ej. Sukarne, New Mexico, INIFAP, CIAD, Ganadera, nombre...">
+              <label for="busquedaConvenio" class="form-label fw-semibold">Buscar por Empresa, Institución o
+                Responsable</label>
+              <input type="text" id="busquedaConvenio" class="form-control"
+                placeholder="Ej. Sukarne, New Mexico, INIFAP, CIAD, Ganadera, nombre...">
             </div>
           </div>
         </div>
@@ -171,74 +453,167 @@
         </div>
       </div>
 
-      <!-- PANEL 2: ACTIVIDADES DE COLABORACIÓN -->
+      <!-- PANEL 2: ACTIVIDADES DE COLABORACIÓN (ESTILO DESPLEGABLE / ACORDEÓN) -->
       <div id="panel-colaboracion" class="vinculacion-panel">
-        <div class="info-card-vinculacion">
-          <h3>Movilidad e Intercambio Académico y Científico</h3>
-          <p>
-            Convenios marco y específicos con universidades de reconocido prestigio nacional e internacional (New Mexico State University, Universidad de Antioquia, Universidad de Camagüey, UAM, UABC, UNISON, entre otras) para la estancia de estudiantes de maestría y doctorado, estancias posdoctorales y codirección de tesis en comités tutoriales.
-          </p>
-        </div>
-        <div class="info-card-vinculacion">
-          <h3>Investigación y Proyectos Conjuntos en el Sector Agropecuario</h3>
-          <p>
-            Alianzas con centros de investigación de excelencia como el CIMMYT, INIFAP, CIATEJ y CIAD para el desarrollo de proyectos orientados a la biotecnología agrícola, sanidad e inocuidad alimentaria, nutrición animal y mejoramiento genético.
-          </p>
-        </div>
-        <div class="info-card-vinculacion">
-          <h3>Estancias Profesionales e Inserción Productiva</h3>
-          <p>
-            Colaboración estrecha con empresas líderes del sector agroalimentario (SuKarne, Agrícola Kondo, CAADES, Unión Ganadera Regional de Sinaloa) para la validación y aplicación de investigaciones científicas en condiciones reales de producción.
-          </p>
+        <div class="acordeon-uas">
+          
+          <!-- Item 1 -->
+          <div class="acordeon-item abierto">
+            <div class="acordeon-header" onclick="toggleAcordeon(this)">
+              <div class="header-left">
+                <span class="acordeon-tag">Eje 1</span>
+                <span>Movilidad e Intercambio Académico y Científico</span>
+              </div>
+              <span class="acordeon-arrow">▾</span>
+            </div>
+            <div class="acordeon-body">
+              <p>
+                El Colegio de Ciencias Agropecuarias promueve estancias de investigación nacionales e internacionales para estudiantes de maestría y doctorado, estancias posdoctorales y codirección de tesis en comités tutoriales.
+              </p>
+              <ul class="acordeon-list">
+                <li><strong>Convenios Internacionales:</strong> New Mexico State University (EE. UU.), Universidad de Antioquia (Colombia), Universidad de Camagüey (Cuba), Instituto de Ciencia Animal (Cuba).</li>
+                <li><strong>Convenios Nacionales:</strong> Universidad Autónoma Metropolitana (UAM), Universidad Autónoma de Baja California (UABC), Universidad de Sonora (UNISON), Universidad Juárez del Estado de Durango (UJED), Colegio de Postgraduados (Colpos).</li>
+                <li><strong>Beneficios:</strong> Acceso a laboratorios especializados, cotutela de tesis, cursos compartidos y enriquecimiento metodológico.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="acordeon-item">
+            <div class="acordeon-header" onclick="toggleAcordeon(this)">
+              <div class="header-left">
+                <span class="acordeon-tag">Eje 2</span>
+                <span>Investigación y Proyectos Conjuntos en el Sector Agropecuario</span>
+              </div>
+              <span class="acordeon-arrow">▾</span>
+            </div>
+            <div class="acordeon-body">
+              <p>
+                Alianzas estratégicas con centros de investigación de excelencia y fondos sectoriales para el desarrollo de proyectos orientados a la biotecnología agrícola, sanidad alimentaria, nutrición animal y mejoramiento genético sustentable.
+              </p>
+              <ul class="acordeon-list">
+                <li><strong>Centros de Excelencia Asociados:</strong> Centro Internacional de Mejoramiento de Maíz y Trigo (CIMMYT), Instituto Nacional de Investigaciones Forestales, Agrícolas y Pecuarias (INIFAP), Centro de Investigación en Alimentación y Desarrollo (CIAD), Centro de Investigación y Asistencia en Tecnología y Diseño del Estado de Jalisco (CIATEJ).</li>
+                <li><strong>Áreas de Trabajo:</strong> Diagnóstico molecular fitosanitario, control biológico de plagas en hortalizas, estrés por calor en ganado lechero, alternativas biorracionales para la acuicultura de camarón.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="acordeon-item">
+            <div class="acordeon-header" onclick="toggleAcordeon(this)">
+              <div class="header-left">
+                <span class="acordeon-tag">Eje 3</span>
+                <span>Estancias Profesionales e Inserción Productiva</span>
+              </div>
+              <span class="acordeon-arrow">▾</span>
+            </div>
+            <div class="acordeon-body">
+              <p>
+                Colaboración directa con empresas líderes y asociaciones agropecuarias del noroeste del país para la validación científica en campo y la inserción de egresados de alto nivel en el sector productivo.
+              </p>
+              <ul class="acordeon-list">
+                <li><strong>Empresas y Asociaciones Vinculadas:</strong> SuKarne Agroindustrial, Agrícola Kondo, Bachoco, Jova Capital, Bioteksa, Provivi, Monsanto, Asociación de Agricultores del Río Culiacán (AARC), Unión Ganadera Regional de Sinaloa, Confederación de Asociaciones Agrícolas del Estado de Sinaloa (CAADES).</li>
+                <li><strong>Modalidades:</strong> Ensayos de nutrición en corrales de engorda, validación de bioinsumos agrícolas, análisis de inocuidad en rastros TIF y plantas procesadoras.</li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- PANEL 3: PRODUCTOS DERIVADOS DE LA COLABORACIÓN -->
+      <!-- PANEL 3: PRODUCTOS DERIVADOS (ESTILO MODAL / DRAWER LATERAL) -->
       <div id="panel-productos" class="vinculacion-panel">
-        <div class="info-card-vinculacion">
-          <h3>Artículos Científicos de Alto Impacto (JCR y Conacyt)</h3>
-          <p>
-            Publicaciones conjuntas entre profesores del Núcleo Académico Básico, estudiantes de posgrado y colaboradores internacionales en revistas indexadas de prestigio global.
-          </p>
-        </div>
-        <div class="info-card-vinculacion">
-          <h3>Tesis en Cotutela y Patentes en Trámite</h3>
-          <p>
-            Desarrollo de innovaciones tecnológicas, formulación de biocontroladores para cultivos agrícolas y protocolos de sanidad pecuaria con impacto directo en el sector productivo de Sinaloa y el noroeste del país.
-          </p>
-        </div>
-        <div class="info-card-vinculacion">
-          <h3>Participación en Congresos Nacionales e Internacionales</h3>
-          <p>
-            Presentación de más de 260 trabajos, ponencias y carteles científicos derivados de convenios interinstitucionales en foros especializados en México, España, Reino Unido y Latinoamérica.
-          </p>
+        <div class="grid-productos-vinculacion">
+          
+          <!-- Card 1 -->
+          <div class="card-producto-vinculacion">
+            <div>
+              <span class="badge bg-primary mb-2">Publicaciones</span>
+              <h3>Artículos Científicos de Alto Impacto (JCR y Conacyt)</h3>
+              <p>
+                Artículos publicados en coautoría con investigadores de instituciones nacionales e internacionales, derivados de convenios y proyectos financiados.
+              </p>
+            </div>
+            <button class="btn-drawer-producto" onclick="abrirDrawerProducto('articulos')">
+              <span>Ver Ficha Técnica</span> <span>&rarr;</span>
+            </button>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card-producto-vinculacion">
+            <div>
+              <span class="badge bg-success mb-2">Innovación y Tesis</span>
+              <h3>Tesis en Cotutela y Patentes Tecnológicas</h3>
+              <p>
+                Desarrollo de innovaciones tecnológicas, formulación de biocontroladores para cultivos agrícolas y protocolos de sanidad pecuaria con impacto sectorial.
+              </p>
+            </div>
+            <button class="btn-drawer-producto" onclick="abrirDrawerProducto('patentes')">
+              <span>Ver Ficha Técnica</span> <span>&rarr;</span>
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="card-producto-vinculacion">
+            <div>
+              <span class="badge bg-warning text-dark mb-2">Divulgación Global</span>
+              <h3>Congresos Nacionales e Internacionales</h3>
+              <p>
+                Más de 260 trabajos, ponencias y carteles científicos presentados en foros especializados en México, España, Reino Unido, EE. UU. y Latinoamérica.
+              </p>
+            </div>
+            <button class="btn-drawer-producto" onclick="abrirDrawerProducto('congresos')">
+              <span>Ver Ficha Técnica</span> <span>&rarr;</span>
+            </button>
+          </div>
+
         </div>
       </div>
 
       <!-- PANEL 4: MECANISMOS DE TRANSFERENCIA Y APLICACIÓN -->
       <div id="panel-transferencia" class="vinculacion-panel">
-        <div class="info-card-vinculacion">
-          <h3>Transferencia de Tecnología Biorracional</h3>
-          <p>
-            Capacitación y asesoría técnica a agricultores y productores pecuarios sobre control biológico de plagas, biofertilización con micorrizas, manejo sanitario de hatos y reducción de patógenos bacterianos.
-          </p>
-        </div>
-        <div class="info-card-vinculacion">
-          <h3>Diagnóstico de Laboratorio y Certificación Sanitaria</h3>
-          <p>
-            Servicios especializados de detección molecular de patógenos pecuarios y fitopatógenos para asociaciones ganaderas y agrícolas del estado de Sinaloa en coordinación con comités de sanidad vegetal y animal.
-          </p>
-        </div>
-        <div class="info-card-vinculacion">
-          <h3>Convenios de Colaboración Abiertos</h3>
-          <p>
-            Mecanismo ágil para la formalización de nuevos convenios específicos con empresas, asociaciones y dependencias gubernamentales interesadas en investigación, desarrollo tecnológico y consultoría.
-          </p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="info-card-vinculacion h-100">
+              <h3>Transferencia de Tecnología Biorracional</h3>
+              <p>
+                Capacitación y asesoría técnica a agricultores y productores pecuarios sobre control biológico de plagas, biofertilización con micorrizas, manejo sanitario de hatos y reducción de patógenos bacterianos.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card-vinculacion h-100">
+              <h3>Diagnóstico y Certificación Sanitaria</h3>
+              <p>
+                Servicios especializados de detección molecular de patógenos pecuarios y fitopatógenos para asociaciones ganaderas y agrícolas de Sinaloa en coordinación con comités de sanidad vegetal y animal.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info-card-vinculacion h-100">
+              <h3>Convenios de Colaboración Abiertos</h3>
+              <p>
+                Mecanismo ágil para la formalización de nuevos convenios específicos con empresas, asociaciones y dependencias gubernamentales interesadas en investigación, desarrollo tecnológico y consultoría.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
   </main>
+
+  <!-- MODAL / DRAWER LATERAL PARA PRODUCTOS -->
+  <div id="drawerOverlay" class="drawer-overlay" onclick="cerrarDrawer()"></div>
+  <aside id="drawerLateral" class="drawer-lateral" aria-labelledby="drawerTitulo" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <h2 id="drawerTitulo">Ficha de Información</h2>
+      <button class="drawer-close" onclick="cerrarDrawer()" aria-label="Cerrar detalles">&times;</button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <!-- El contenido se inyecta dinámicamente -->
+    </div>
+  </aside>
 
   <site-footer data-root="../"></site-footer>
 
@@ -246,13 +621,15 @@
   <script src="../js/site-header.js"></script>
   <script src="../js/site-footer.js"></script>
   <script src="../js/menu.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
   <script src="vinculacion.js"></script>
   <script>
     function cambiarSeccion(seccion, btn) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
       document.querySelectorAll('.vinculacion-panel').forEach(p => p.classList.remove('active'));
-      
+
       btn.classList.add('active');
       const target = document.getElementById('panel-' + seccion);
       if (target) target.classList.add('active');
@@ -282,6 +659,135 @@
         document.getElementById('breadcrumbCurrent').innerText = titulos[seccion].h1;
       }
     }
+
+    function toggleAcordeon(headerEl) {
+      const item = headerEl.parentElement;
+      item.classList.toggle('abierto');
+    }
+
+    function abrirDrawerProducto(tipo) {
+      const overlay = document.getElementById('drawerOverlay');
+      const drawer = document.getElementById('drawerLateral');
+      const drawerTitulo = document.getElementById('drawerTitulo');
+      const drawerBody = document.getElementById('drawerBody');
+      if (!overlay || !drawer || !drawerBody) return;
+
+      const dataProductos = {
+        'articulos': {
+          titulo: 'Ficha: Artículos Científicos de Alto Impacto',
+          contenido: `
+            <div class="drawer-item">
+              <div class="drawer-label">Categoría</div>
+              <div class="drawer-value"><span class="badge bg-primary">Publicaciones JCR / CONACYT</span></div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Descripción General</div>
+              <div class="drawer-value">
+                Artículos originales derivados de proyectos de colaboración y tesis doctorales/maestría publicados en revistas indexadas en el Journal Citation Reports (JCR) y el Sistema de Clasificación de Revistas Mexicanas de Ciencia y Tecnología del Conahcyt.
+              </div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Principales Revistas de Difusión</div>
+              <div class="drawer-value">
+                <ul class="mb-0 ps-3">
+                  <li>Agronomy, Animals, Insects (MDPI)</li>
+                  <li>Journal of Animal Science</li>
+                  <li>Revista Mexicana de Ciencias Pecuarias</li>
+                  <li>Revista Fitotecnia Mexicana</li>
+                  <li>Veterinaria México OA</li>
+                </ul>
+              </div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Impacto y Colaboración</div>
+              <div class="drawer-value">
+                El 100% de los artículos cuenta con la participación de al menos un estudiante de posgrado y un colaborador de instituciones asociadas en México, EE. UU., Cuba o Colombia.
+              </div>
+            </div>
+          `
+        },
+        'patentes': {
+          titulo: 'Ficha: Tesis en Cotutela y Patentes',
+          contenido: `
+            <div class="drawer-item">
+              <div class="drawer-label">Categoría</div>
+              <div class="drawer-value"><span class="badge bg-success text-white">Desarrollo Tecnológico y Cotutela</span></div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Líneas de Innovación Tecnológica</div>
+              <div class="drawer-value">
+                Desarrollo y registro de protocolos biológicos para el control de bacterias fitopatógenas mediante bacteriófagos líticos, formulaciones de biofertilizantes con hongos micorrízicos y métodos de tipificación molecular para patógenos en ganado y cultivos.
+              </div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Tesis en Cotutela Activas</div>
+              <div class="drawer-value">
+                Estudiantes de doctorado y maestría asesorados por comités mixtos conformados por profesores de la UAS y centros externos (CIMMYT, CIAD, INIFAP, CIATEJ).
+              </div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Sector Beneficiado</div>
+              <div class="drawer-value">
+                Productores agrícolas de hortalizas y granos, engordadores de ganado bovino y porcino, y cooperativas acuícolas de Sinaloa.
+              </div>
+            </div>
+          `
+        },
+        'congresos': {
+          titulo: 'Ficha: Participación en Congresos Científicos',
+          contenido: `
+            <div class="drawer-item">
+              <div class="drawer-label">Categoría</div>
+              <div class="drawer-value"><span class="badge bg-warning text-dark">Divulgación y Ponencias</span></div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Métricas de Participación</div>
+              <div class="drawer-value fw-bold fs-5 text-primary">
+                +260 Trabajos Científicos Presentados
+              </div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Foros y Sedes Destacadas</div>
+              <div class="drawer-value">
+                <ul class="mb-0 ps-3">
+                  <li><strong>Nacional:</strong> Congreso Nacional de Buiatría, Reunión Nacional de Investigación Pecuaria, Congreso Mexicano de Fitopatología, CONAESCA.</li>
+                  <li><strong>Internacional:</strong> Euro-Global Conference (España), International Symposium on Animal Health (Reino Unido), Joint Annual Meeting (EE. UU.).</li>
+                </ul>
+              </div>
+            </div>
+            <div class="drawer-item">
+              <div class="drawer-label">Modalidades de Participación</div>
+              <div class="drawer-value">
+                Ponencias orales magistrales, presentaciones en paneles especializados y carteles científicos con dictamen por pares académicos.
+              </div>
+            </div>
+          `
+        }
+      };
+
+      if (dataProductos[tipo]) {
+        drawerTitulo.innerText = dataProductos[tipo].titulo;
+        drawerBody.innerHTML = dataProductos[tipo].contenido;
+        overlay.classList.add('active');
+        drawer.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function cerrarDrawer() {
+      const overlay = document.getElementById('drawerOverlay');
+      const drawer = document.getElementById('drawerLateral');
+      if (overlay) overlay.classList.remove('active');
+      if (drawer) drawer.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        cerrarDrawer();
+      }
+    });
   </script>
 </body>
+
 </html>
