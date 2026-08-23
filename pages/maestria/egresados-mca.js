@@ -683,13 +683,72 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 ];
 
-  const configEgresadosMCA = {
-    busquedaId: "busquedaEgresadoMCA",
-    cohorteId: "filtroCohorteEgresadoMCA",
-    tbodySelector: "#tablaEgresadosMCA tbody",
-    paginacionId: "paginacionEgresadosMCA",
-    formato: "egresados",
-  };
+  const searchInput = document.getElementById("busquedaEgresadoMCA");
+  const cohorteFilter = document.getElementById("filtroCohorteEgresadoMCA");
+  const tbody = document.querySelector("#tablaEgresadosMCA tbody");
+  const paginationUl = document.getElementById("paginacionEgresadosMCA");
 
-  inicializarTablaTesis(DATA_EGRESADOS_MCA, configEgresadosMCA);
+  const limit = 10;
+  let currentPage = 1;
+  let filteredData = [...DATA_EGRESADOS_MCA];
+
+  // Poblar selector de generación
+  [...new Set(DATA_EGRESADOS_MCA.map(d => d.cohorte))].sort().reverse().forEach(c => {
+    cohorteFilter.add(new Option(c, c));
+  });
+
+  function renderTable() {
+    tbody.innerHTML = '';
+    const slice = filteredData.slice((currentPage - 1) * limit, currentPage * limit);
+    if (!slice.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-muted">No se encontraron resultados para los filtros seleccionados.</td></tr>';
+      return;
+    }
+    slice.forEach(d => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="text-center">${d.cohorte}</td>
+        <td><strong>${d.alumno}</strong></td>
+        <td>${d.comite}</td>
+        <td>${d.tema}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function renderPagination() {
+    paginationUl.innerHTML = '';
+    const totalPages = Math.ceil(filteredData.length / limit);
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+      const li = document.createElement('li');
+      li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+      li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+      li.onclick = (e) => {
+        e.preventDefault();
+        currentPage = i;
+        renderTable();
+        renderPagination();
+      };
+      paginationUl.appendChild(li);
+    }
+  }
+
+  function applyFilter() {
+    const q = searchInput.value.toLowerCase().trim();
+    const c = cohorteFilter.value;
+    filteredData = DATA_EGRESADOS_MCA.filter(d => 
+      (!c || c === 'todos' || d.cohorte === c) &&
+      (!q || Object.values(d).some(v => String(v).toLowerCase().includes(q)))
+    );
+    currentPage = 1;
+    renderTable();
+    renderPagination();
+  }
+
+  searchInput.addEventListener('input', applyFilter);
+  cohorteFilter.addEventListener('change', applyFilter);
+
+  applyFilter();
 });
