@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /**
-   * BASE DE DATOS: Repositorio de Tesis
-   */
   const DATA_REPOSITORIO_MCA = [
   {
     "alumno": "Melissa de Jesús Contreras Madueña",
