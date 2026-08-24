@@ -732,20 +732,28 @@ document.addEventListener("DOMContentLoaded", function () {
     tbody.innerHTML = "";
     const slice = filteredData.slice((currentPage - 1) * limit, currentPage * limit);
     if (!slice.length) {
-      tbody.innerHTML = '<tr><td colspan="4" class="text-center py-4 text-muted">No se encontraron tesis para los filtros seleccionados.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4 text-muted">No se encontraron tesis para los filtros seleccionados.</td></tr>';
       return;
     }
     slice.forEach(d => {
       const tr = document.createElement("tr");
-      const pdfBtn = d.pdf ? '<div class="mt-2"><a href="' + d.pdf + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-primary fw-semibold" style="font-size: 0.82rem; padding: 3px 10px; border-radius: 6px; display: inline-flex; align-items: center; gap: 5px;"><svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/><path d="M4.603 14.087a.81.81 0 0 1-.438-.42c-.195-.388-.13-.776.08-1.144.204-.356.59-.636 1.09-.854.498-.216 1.1-.35 1.776-.397a15.8 15.8 0 0 1 1.04-.037c.36 0 .7.02 1.01.06.31.04.59.1.83.18.24.08.43.18.57.3.14.12.22.27.24.45.02.18-.04.38-.18.6-.14.22-.38.41-.72.57-.34.16-.78.27-1.32.33a17.2 17.2 0 0 1-1.8.06c-.72 0-1.38-.07-1.98-.21-.6-.14-1.07-.37-1.4-.69zm3.83-1.63c-.22-.05-.48-.09-.78-.12-.3-.03-.64-.04-1.02-.04-.56 0-1.05.04-1.47.12-.42.08-.73.2-.93.36-.2.16-.25.35-.15.57.1.22.35.37.75.45.4.08.92.12 1.56.12.64 0 1.18-.05 1.62-.15.44-.1.74-.24.9-.42.16-.18.17-.37.03-.57-.14-.2-.47-.3-.99-.32z"/></svg> Ver Tesis PDF</a></div>' : '';
+      const pdfCell = d.pdf 
+        ? `<a href="${d.pdf}" target="_blank" rel="noopener noreferrer" class="btn-pdf-doc" title="Descargar / Ver Tesis en PDF">
+             <svg width="26" height="30" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M3 3C3 1.89543 3.89543 1 5 1H18L25 8V29C25 30.1046 24.1046 31 23 31H5C3.89543 31 3 30.1046 3 29V3Z" fill="#FFFFFF" stroke="#DC2626" stroke-width="2"/>
+               <path d="M18 1V8H25" fill="#FEE2E2" stroke="#DC2626" stroke-width="2" stroke-linejoin="round"/>
+               <rect x="2" y="14" width="22" height="12" rx="3" fill="#DC2626"/>
+               <text x="13" y="23.2" font-family="'Inter', system-ui, sans-serif" font-weight="900" font-size="8.5" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">PDF</text>
+             </svg>
+           </a>`
+        : `<span class="text-muted small">—</span>`;
+
       tr.innerHTML = `
         <td class="fw-bold text-dark">${d.alumno}</td>
-        <td>
-          <div class="fw-semibold text-secondary-emphasis mb-1">${d.tema}</div>
-          ${pdfBtn}
-        </td>
+        <td><div class="fw-semibold text-secondary-emphasis">${d.tema}</div></td>
         <td class="small text-muted">${d.comite}</td>
         <td class="text-center"><span class="badge bg-light text-dark border">${d.cohorte}</span></td>
+        <td class="text-center">${pdfCell}</td>
       `;
       tbody.appendChild(tr);
     });

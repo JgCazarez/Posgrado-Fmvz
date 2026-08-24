@@ -363,21 +363,55 @@ table.tabla-uas td {
     gap: 3px !important;
   }
 
-  /* Etiquetas para Tabla Tesis en Proceso */
-  table.tabla-tesis td:nth-child(1)::before {
+  /* Etiquetas para Tabla Tesis en Proceso y Repositorio MCA */
+  table.tabla-tesis td:nth-child(1)::before,
+  table.tabla-repositorio-mca td:nth-child(1)::before {
     content: "Alumno";
   }
 
-  table.tabla-tesis td:nth-child(2)::before {
+  table.tabla-tesis td:nth-child(2)::before,
+  table.tabla-repositorio-mca td:nth-child(2)::before {
     content: "Tema";
   }
 
-  table.tabla-tesis td:nth-child(3)::before {
+  table.tabla-tesis td:nth-child(3)::before,
+  table.tabla-repositorio-mca td:nth-child(3)::before {
     content: "Comité";
   }
 
-  table.tabla-tesis td:nth-child(4)::before {
+  table.tabla-tesis td:nth-child(4)::before,
+  table.tabla-repositorio-mca td:nth-child(4)::before {
     content: "Cohorte";
+  }
+
+  /* Etiquetas para Tabla Repositorio DCA */
+  table.tabla-repositorio-dca td:nth-child(1)::before {
+    content: "Alumno";
+  }
+
+  table.tabla-repositorio-dca td:nth-child(2)::before {
+    content: "Tema";
+  }
+
+  table.tabla-repositorio-dca td:nth-child(3)::before {
+    content: "Comité";
+  }
+
+  table.tabla-repositorio-dca td:nth-child(4)::before {
+    content: "Cohorte";
+  }
+
+  table.tabla-repositorio-dca td:nth-child(5)::before {
+    content: "Documento";
+  }
+
+  table.tabla-repositorio-mca td:nth-child(2),
+  table.tabla-repositorio-mca td:nth-child(3),
+  table.tabla-repositorio-dca td:nth-child(2),
+  table.tabla-repositorio-dca td:nth-child(3) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 3px !important;
   }
 
   /* Etiquetas para Tabla Egresados */
@@ -478,4 +512,59 @@ table.tabla-uas td {
   table.tabla-uas td[colspan]::before {
     content: none !important;
   }
+}
+
+/* ===== ESTILOS PARA REPOSITORIO DE TESIS ===== */
+.link-tesis-pdf {
+  color: var(--uas-azul, #0B5EAF) !important;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+}
+
+.link-tesis-pdf:hover {
+  color: var(--uas-azul-oscuro, #0A4E94) !important;
+  text-decoration: underline !important;
+}
+
+.btn-pdf-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #fef2f2;
+  color: #dc2626 !important;
+  border: 1px solid #fecaca;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-pdf-icon:hover {
+  background-color: #dc2626;
+  color: #ffffff !important;
+  border-color: #dc2626;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  text-decoration: none;
+}
+
+.btn-pdf-icon svg {
+  flex-shrink: 0;
+}
+
+.btn-pdf-doc {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-pdf-doc svg {
+  display: block;
 }
