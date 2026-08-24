@@ -111,8 +111,8 @@ class SiteHeader extends HTMLElement {
             <li class="dropdown">
               <a href="#">Repositorio de Tesis</a>
               <ul class="dropdown-content">
-                <li><a href="${root}pages/maestria/tesis-en-proceso.html">Maestría en Ciencias Agropecuarias</a></li>
-                <li><a href="${root}pages/doctorado/tesis-en-proceso.html">Doctorado en Ciencias Agropecuarias</a></li>
+                <li><a href="${root}pages/maestria/repositorio-de-tesis.html">Maestría en Ciencias Agropecuarias</a></li>
+                <li><a href="${root}pages/doctorado/repositorio-de-tesis.html">Doctorado en Ciencias Agropecuarias</a></li>
               </ul>
             </li>
 
